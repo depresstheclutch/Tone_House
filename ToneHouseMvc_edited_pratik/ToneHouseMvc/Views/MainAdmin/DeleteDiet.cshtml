@@ -1,0 +1,63 @@
+﻿@model ToneHouseMvc.Models.tb_Diet
+
+@{
+    ViewBag.Title = "DeleteDiet";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<div>
+    <h4>tb_Diet</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DishName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DishName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DishDes)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DishDes)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DishTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DishTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImagePath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tb_Type.TypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tb_Type.TypeName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "DisplayDiet")
+        </div>
+    }
+</div>

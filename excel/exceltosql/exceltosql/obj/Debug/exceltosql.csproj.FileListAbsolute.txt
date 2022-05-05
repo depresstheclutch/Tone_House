@@ -1,0 +1,7 @@
+C:\Users\pcuser\source\repos\exceltosql\exceltosql\bin\Debug\exceltosql.exe.config
+C:\Users\pcuser\source\repos\exceltosql\exceltosql\bin\Debug\exceltosql.exe
+C:\Users\pcuser\source\repos\exceltosql\exceltosql\bin\Debug\exceltosql.pdb
+C:\Users\pcuser\source\repos\exceltosql\exceltosql\obj\Debug\exceltosql.csprojAssemblyReference.cache
+C:\Users\pcuser\source\repos\exceltosql\exceltosql\obj\Debug\exceltosql.csproj.CoreCompileInputs.cache
+C:\Users\pcuser\source\repos\exceltosql\exceltosql\obj\Debug\exceltosql.exe
+C:\Users\pcuser\source\repos\exceltosql\exceltosql\obj\Debug\exceltosql.pdb

@@ -1,0 +1,805 @@
+﻿@using ToneHouseMvc.Models
+@model dynamic
+@{
+    ViewBag.Title = "Dashboard";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+<link href="~/stamina/css/Login_style.css" rel="stylesheet" />
+@*----------------------------------------------------------Profile Card Starts-------------------------------------------------------*@
+<div id="fh5co-testimonial" class="fh5co-bg-section">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-10 col-md-offset-1">
+                <div class="row animate-box">
+                    <div class="owl-carousel owl-carousel-fullwidth">
+                        <div class="item">
+                            <div class="row animate-box">
+                                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                                    <h2>Welcome!!</h2>
+                                </div>
+                            </div>
+
+                            <div class="testimony-slide active text-center">
+                                <figure>
+                                    @if (@Model.personal != null)
+                                    {
+                                        <img src="@Url.Content(Model.personal.PhotoPath)" height="100" width="100" />
+                                    }
+                                </figure>
+                                @*@foreach (var item in Session["usersession"])
+                                    {
+
+                                    }*@
+
+                                <span>@Session["Name"]</span>
+                                <blockquote>
+
+
+                                    @if (@Model.personal != null)
+                                    {
+                                        <p>Age:@Model.personal.Age</p>
+                                    }
+
+                                </blockquote>
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimony-slide active text-center">
+
+                                <span> <p>&ldquo;Congrats Total calories burned !!&rdquo;<strong> <h1>@TempData["Sum"]</h1></strong></p></span>
+
+                            </div>
+                        </div>
+                        <div class="item">
+                            <div class="testimony-slide active text-center">
+
+                                <span>
+                                    @if (@Model.personal != null)
+                                    {
+                                        <h3>Height - @Model.personal.Height ft</h3>
+                                        <h3>Weight - @Model.personal.Weight kg</h3>
+                                        <h3>Blood Group - @Model.personal.BloodGroup</h3>
+                                    }
+                                </span>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*-----------------------------------------------------------Profile Card Ends-------------------------------------------------------*@
+
+@*-------------------------------------------------------Weekly Planner Starts-------------------------------------------------------*@
+
+
+@*<div id="fh5co-schedule" class="fh5co-bg" style="background-image: url('../../stamina/images/img_bg_1.jpg');">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+                <h2>Weekly Planner</h2>
+            </div>
+        </div>
+        @*<button>Week 1</button>
+            <button>Week 2</button>
+            <button>Week 3</button>
+            <button>Week 4</button>*@
+
+@*@Html.Partial("PartialPlanner");
+        </div>
+    </div>*@
+<div id="fh5co-schedule" class="fh5co-bg" style="background-image: url('../../stamina/images/img_bg_1.jpg');
+height:auto;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+                <h2>Weekly Planner</h2>
+            </div>
+        </div>
+        @*<button>Week 1</button>
+            <button>Week 2</button>
+            <button>Week 3</button>
+            <button>Week 4</button>*@
+
+        <div class="row animate-box">
+
+            <div class="fh5co-tabs">
+                <ul class="fh5co-tab-nav">
+                    <li class="active"><a href="cardiotab" data-tab="1"><span class="visible-xs">S</span><span class="hidden-xs">Sunday</span></a></li>
+                    <li><a href="#" data-tab="2"><span class="visible-xs">M</span><span class="hidden-xs">Monday</span></a></li>
+                    <li><a href="#" data-tab="3"><span class="visible-xs">T</span><span class="hidden-xs">Tuesday</span></a></li>
+                    <li><a href="#" data-tab="4"><span class="visible-xs">W</span><span class="hidden-xs">Wednesday</span></a></li>
+
+                    <li><a href="#" data-tab="5"><span class="visible-xs">Th</span><span class="hidden-xs">Thursday</span></a></li>
+                    <li><a href="#" data-tab="6"><span class="visible-xs">F</span><span class="hidden-xs">Friday</span></a></li>
+                    <li><a href="#" data-tab="7"><span class="visible-xs">S</span><span class="hidden-xs">Saturday</span></a></li>
+                </ul>
+
+                @*-------------------------------------------Tabs for Exercise Type Starts-------------------------------------------------*@
+
+                <div class="fh5co-tab-content-wrap" id="#cardiotab">
+                    <div class="fh5co-tab-content tab-content active" data-tab-content="1">
+                        <ul class="class-schedule">
+                            <li class="text-center">
+                                <span><img src="~/stamina/images/exercise.svg" class="img-responsive" alt=""></span>
+                                <input type="button" id="btnsci" class="btn btn-default" value="click me">
+                                <h4>Cardio</h4>
+                                <small>Let's Get Started</small>
+                            </li>
+                            <li class="text-center">
+                                <span><img src="~/stamina/images/dumbbell.svg" class="img-responsive" alt=""></span>
+                                <input type="button" id="btnsci" class="btn btn-default" value="click me">
+                                <h4>Body Building</h4>
+                                <small>Let's Get Started</small>
+                            </li>
+                            <li class="text-center">
+                                <span><img src="~/stamina/images/yoga-carpet.svg" class="img-responsive" alt=""></span>
+                                <input type="button" id="btnsci" class="btn btn-default" value="click me">
+                                <h4>Weight Lifting</h4>
+                                <small>Let's Get Started</small>
+                            </li>
+                            <li class="text-center">
+                                <span><img src="~/stamina/images/two-boxing-gloves.svg" class="img-responsive" alt=""></span>
+                                <input type="button" id="btnsci" class="btn btn-default" value="click me">
+                                <h4>High Intensity</h4>
+                                <small>Let's Get Started</small>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="fh5co-tab-content tab-content active" data-tab-content="2">
+                        <ul class="class-schedule">
+                            <li class="text-center">
+                                <span><img src="~/stamina/images/exercise.svg" class="img-responsive" alt=""></span>
+
+                                <input type="button" id="btnsci" class="btn btn-default" value="click me">
+
+                                <h4>Cardio</h4>
+                                <small>Let's Get Started</small>
+                            </li>
+                            <li class="text-center">
+                                <span><img src="~/stamina/images/dumbbell.svg" class="img-responsive" alt=""></span>
+
+                                <input type="button" id="btnsci" class="btn btn-default" value="click me">
+
+                                <h4>Body Building</h4>
+                                <small>Let's Get Started</small>
+                            </li>
+                            <li class="text-center">
+                                <span><img src="~/stamina/images/yoga-carpet.svg" class="img-responsive" alt=""></span>
+                                <input type="button" id="btnsci" class="btn btn-default" value="click me">
+                                <h4>Weight Lifting</h4>
+                                <small>Let's Get Started</small>
+                            </li>
+                            <li class="text-center">
+                                <span><img src="~/stamina/images/two-boxing-gloves.svg" class="img-responsive" alt=""></span>
+                                <input type="button" id="btnsci" class="btn btn-default" value="click me">
+                                <h4>High Intensity</h4>
+                                <small>Let's Get Started</small>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <div class="fh5co-tab-content tab-content active" data-tab-content="3">
+                        <ul class="class-schedule">
+                            <li class="text-center">
+                                <span><img src="~/stamina/images/exercise.svg" class="img-responsive" alt=""></span>
+                                <input type="button" id="btnsci" class="btn btn-default" value="click me">
+                                <h4>Cardio</h4>
+                                <small>Let's Get Started</small>
+                            </li>
+                            <li class="text-center">
+                                <span><img src="~/stamina/images/dumbbell.svg" class="img-responsive" alt=""></span>
+                                <input type="button" id="btnsci" class="btn btn-default" value="click me">
+                                <h4>Body Building</h4>
+                                <small>Let's Get Started</small>
+                            </li>
+                            <li class="text-center">
+                                <span><img src="~/stamina/images/yoga-carpet.svg" class="img-responsive" alt=""></span>
+                                <input type="button" id="btnsci" class="btn btn-default" value="click me">
+                                <h4>Weight Lifting</h4>
+                                <small>Let's Get Started</small>
+                            </li>
+                            <li class="text-center">
+                                <span><img src="~/stamina/images/two-boxing-gloves.svg" class="img-responsive" alt=""></span>
+                                <input type="button" id="btnsci" class="btn btn-default" value="click me">
+                                <h4>High Intensity</h4>
+                                <small>Let's Get Started</small>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <div class="fh5co-tab-content tab-content active" data-tab-content="4">
+                        <ul class="class-schedule">
+                            <li class="text-center">
+                                <span><img src="~/stamina/images/exercise.svg" class="img-responsive" alt=""></span>
+                                <input type="button" id="btnsci" class="btn btn-default" value="click me">
+                                <h4>Cardio</h4>
+                                <small>Let's Get Started</small>
+                            </li>
+                            <li class="text-center">
+                                <span><img src="~/stamina/images/dumbbell.svg" class="img-responsive" alt=""></span>
+                                <input type="button" id="btnsci" class="btn btn-default" value="click me">
+                                <h4>Body Building</h4>
+                                <small>Let's Get Started</small>
+                            </li>
+                            <li class="text-center">
+                                <span><img src="~/stamina/images/yoga-carpet.svg" class="img-responsive" alt=""></span>
+                                <input type="button" id="btnsci" class="btn btn-default" value="click me">
+                                <h4>Weight Lifting</h4>
+                                <small>Let's Get Started</small>
+                            </li>
+                            <li class="text-center">
+                                <span><img src="~/stamina/images/two-boxing-gloves.svg" class="img-responsive" alt=""></span>
+                                <input type="button" id="btnsci" class="btn btn-default" value="click me">
+                                <h4>High Intensity</h4>
+                                <small>Let's Get Started</small>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <div class="fh5co-tab-content tab-content active" data-tab-content="5">
+                        <ul class="class-schedule">
+                            <li class="text-center">
+                                <span><img src="~/stamina/images/exercise.svg" class="img-responsive" alt=""></span>
+                                <input type="button" id="btnsci" class="btn btn-default" value="click me">
+                                <h4>Cardio</h4>
+                                <small>Let's Get Started</small>
+                            </li>
+                            <li class="text-center">
+                                <span><img src="~/stamina/images/dumbbell.svg" class="img-responsive" alt=""></span>
+                                <input type="button" id="btnsci" class="btn btn-default" value="click me">
+                                <h4>Body Building</h4>
+                                <small>Let's Get Started</small>
+                            </li>
+                            <li class="text-center">
+                                <span><img src="~/stamina/images/yoga-carpet.svg" class="img-responsive" alt=""></span>
+                                <input type="button" id="btnsci" class="btn btn-default" value="click me">
+                                <h4>Weight Lifting</h4>
+                                <small>Let's Get Started</small>
+                            </li>
+                            <li class="text-center">
+                                <span><img src="~/stamina/images/two-boxing-gloves.svg" class="img-responsive" alt=""></span>
+                                <input type="button" id="btnsci" class="btn btn-default" value="click me">
+                                <h4>High Intensity</h4>
+                                <small>Let's Get Started</small>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                    <div class="fh5co-tab-content tab-content active" data-tab-content="6">
+                        <ul class="class-schedule">
+                            <li class="text-center">
+                                <span><img src="~/stamina/images/exercise.svg" class="img-responsive" alt=""></span>
+                                <input type="button" id="btnsci" class="btn btn-default" value="click me">
+                                <h4>Cardio</h4>
+                                <small>Let's Get Started</small>
+                            </li>
+                            <li class="text-center">
+                                <span><img src="~/stamina/images/dumbbell.svg" class="img-responsive" alt=""></span>
+                                <input type="button" id="btnsci" class="btn btn-default" value="click me">
+                                <h4>Body Building</h4>
+                                <small>Let's Get Started</small>
+                            </li>
+                            <li class="text-center">
+                                <span><img src="~/stamina/images/yoga-carpet.svg" class="img-responsive" alt=""></span>
+                                <input type="button" id="btnsci" class="btn btn-default" value="click me">
+                                <h4>Weight Lifting</h4>
+                                <small>Let's Get Started</small>
+                            </li>
+                            <li class="text-center">
+                                <span><img src="~/stamina/images/two-boxing-gloves.svg" class="img-responsive" alt=""></span>
+                                <input type="button" id="btnsci" class="btn btn-default" value="click me">
+                                <h4>High Intensity</h4>
+                                <small> Let's Get Started</small>
+                            </li>
+
+                        </ul>
+                    </div>
+                    @*--------------------------------------------------------saturday-----------------------------------------------------------------*@
+                    <div class="fh5co-tab-content tab-content active" data-tab-content="7">
+                        <ul class="class-schedule">
+                            <li class="text-center">
+                                <span><img src="~/stamina/images/exercise.svg" class="img-responsive" alt=""></span>
+                                <div>
+                                    <a href="#sat_scroll_cardio"> <input type="button" id="satcardiobtn" class="btn btn-default" value="click me"></a>
+
+                                </div>
+                                <h4>Cardio</h4>
+                                <small>Let's Get Started</small>
+                            </li>
+                            <li class="text-center">
+                                <span><img src="~/stamina/images/dumbbell.svg" class="img-responsive" alt=""></span>
+                                <div>
+                                    <a href="#sat_scroll_bodybuild"><input type="button" id="satbodybtn" class="btn btn-default" value="click me"></a>
+                                </div>
+                                <h4>Body Building</h4>
+                                <small>Let's Get Started</small>
+                            </li>
+                            <li class="text-center">
+                                <span><img src="~/stamina/images/yoga-carpet.svg" class="img-responsive" alt=""></span>
+                                <div>
+                                    <a href="#sat_scroll_weightlift"><input type="button" id="satweightlftbtn" class="btn btn-default" value="click me"></a>
+                                </div>
+                                <h4>WeightLifting</h4>
+                                <small>Let's Get Started</small>
+                            </li>
+                            <li class="text-center">
+                                <span><img src="~/stamina/images/two-boxing-gloves.svg" class="img-responsive" alt=""></span>
+                                <div>
+                                    <a href="#sat_scroll_highintensity"><input type="button" id="sathighintbtn" class="btn btn-default" value="click me"></a>
+                                </div>
+                                <h4>HighIntensity</h4>
+                                <small>Let's Get Started</small>
+                            </li>
+
+                        </ul>
+                    </div>
+
+                </div>
+                @*--------------------------------------------Tabs for Exercise Type Ends------------------------------------------------*@
+            </div>
+        </div>
+    </div>
+</div>
+@*-------------------------------------------------------------Weekly Planner Ends-----------------------------------------------------*@
+
+@*-------------------------------------------------Java Script for Video Division-----------------------------------------------------*@
+<script type="text/javascript">
+    @* toggle cardio saturday *@
+    //$(document).ready(function () {
+    //    $("#satcardiobtn").click(function () {
+    //        $("#fh5co-started4").toggle();
+    //    });
+    //});
+
+    //$(document).ready(function () {
+    //    $("#btnsci").click(function () {
+    //        $("#btnsci-click").toggle();
+    //    });
+    //});
+    //--------------------------------------------------Toggle Cardio for Saturday Starts-----------------------------------------------------
+    $(document).ready(function () {
+        $("#satcardiobtn").click(function () {
+            $("#fh5co-started8").toggle();
+        });
+    });
+    //--------------------------------------------------Toggle Cardio for Saturday Ends-----------------------------------------------------
+    //--------------------------------------------------Jumbotron Division Starts------------------------------------------------------------
+    $(document).ready(function () {
+        $("#btnscit").click(function () {
+            $("#btnscit-click").toggle();
+        });
+    });
+    //--------------------------------------------------Jumbotron Division Ends------------------------------------------------------------
+
+    //---------------------------------------------Body Building Starts----------------------------------------------------------------
+    $(document).ready(function () {
+        $("#satbodybtn").click(function () {
+            $("#fh5co-started1").toggle();
+        });
+    });
+
+    $(document).ready(function () {
+        $("#btnsbi").click(function () {
+            $("#btnsbi-click").toggle();
+        });
+    });
+    //-----------------------------------------------------Body Building Ends----------------------------------------------------------
+
+    //--------------------------------------------------------Weight Lifting Starts----------------------------------------------------
+    $(document).ready(function () {
+        $("#satweightlftbtn").click(function () {
+            $("#fh5co-started2").toggle();
+        });
+    });
+
+    $(document).ready(function () {
+        $("#btnswi").click(function () {
+            $("#btnswi-click").toggle();
+        });
+    });
+    //----------------------------------------------------------Weight Lifting Ends----------------------------------------------------
+
+    //-------------------------------------------------------High Intensity Starts-----------------------------------------------------
+    $(document).ready(function () {
+        $("#sathighintbtn").click(function () {
+            $("#fh5co-started3").toggle();
+        });
+    });
+
+    $(document).ready(function () {
+        $("#btnshi").click(function () {
+            $("#btnshi-click").toggle();
+        });
+    });
+    //------------------------------------------------------High Intensity Ends--------------------------------------------------------
+
+
+</script>
+@*----------------------------------------Java Script for video Division Ends--------------------------------------------------------*@
+
+
+@*----------------------------------------------------------Video Division Starts--------------------------------------------------*@
+
+@*---------------------------------------------------Videos for Cardio Exercise----------------------------------------------*@
+<div id="fh5co-started8" class="fh5co-bg" style=" background-image: url('../../stamina/images/gallery-1.jpg');
+        height:auto;display:none;">
+    <div class="overlay">.</div>
+
+    <div class="container">
+        <a id="sat_scroll_cardio">
+            <div class="row animate-box">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <h2 style="color:white">Cardio</h2>
+                </div>
+            </div>
+        </a>
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <div>
+                    <input type="button" id="btnscit" class="btn btn-default" value="click me">
+                </div>
+
+            </div>
+        </div>
+        <div id="btnscit-click" style="display:none;">
+            <div class="jumbotron" style="background-color:aliceblue;color:black">
+
+
+                @*-----------------------------Displaying the Videos using for loop Starts-------------------------------------------*@
+
+
+                @foreach (var item in @ViewBag.videolist1)
+                {
+                    <video id="my-video" class="video-js1" controls preload="auto" width="300" height="300">
+                
+                        <source src="@Url.Content(item)" type='video/mp4' />
+
+                       
+                    </video>
+
+                }
+
+                @*-----------------------------Displaying the Videos using for loop Ends---------------------------------------------*@
+
+            </div>
+        </div>
+    </div>
+</div>
+@*-----------------------------------------------------Videos for Cardio Exercise Ends------------------------------------------------*@
+
+
+@*------------------------------------------------------Videos for Body Building Starts----------------------------------------------*@
+<div id="fh5co-started1" class="fh5co-bg" style=" background-image: url('../../stamina/images/gallery-1.jpg');
+        height:auto;display:none;">
+    <div class="overlay"><a id="sate3">.</a></div>
+
+    <div class="container">
+        <a id="sat_scroll_bodybuild">
+            <div class="row animate-box">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <h2 style="color:white">Bodybuilding</h2>
+                </div>
+            </div>
+        </a>
+    </div>
+    <div class="row animate-box">
+        <div class="col-md-8 col-md-offset-2 text-center">
+            <div>
+                <input type="button" id="btnsbi" class="btn btn-default" value="click me">
+            </div>
+
+        </div>
+    </div>
+
+
+    <div id="btnsbi-click" style="display:none;">
+        <div class="jumbotron" style="background-color:aliceblue;color:black">
+
+
+            @*---------------------------------------Displaying the Videos using for loop Starts------------------------------------ *@
+
+
+            @foreach (var item in @ViewBag.videolist1)
+            {
+                <video id="my-video" class="video-js1" controls preload="auto" width="300" height="300">
+                
+                    <source src="@Url.Content(item)" type='video/mp4' />
+
+                  
+                </video>
+
+            }
+
+            @*---------------------------------------Displaying the Videos using for loop Ends----------------------------------------*@
+
+        </div>
+    </div>
+</div>
+</div>
+@*-------------------------------------------------------Videos for Body Building Ends----------------------------------------------- *@
+
+
+@*------------------------------------------------------Videos for Weight Lifting Starts----------------------------------------------*@
+<div id="fh5co-started2" class="fh5co-bg" style="background-image: url('../../stamina/images/gallery-1.jpg');
+        height:auto;display:none;">
+    <div class="overlay"><a id="sate3">.</a></div>
+
+    <div class="container">
+        <a id="sat_scroll_weightlift">
+            <div class="row animate-box">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <h2 style="color:white">Weighlifiting</h2>
+                </div>
+            </div>
+        </a>
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <div>
+                    <input type="button" id="btnswi" class="btn btn-default" value="click me">
+                </div>
+
+            </div>
+        </div>
+
+
+        <div id="btnswi-click" style="display:none;">
+            <div class="jumbotron" style="background-color:aliceblue;color:black">
+
+
+                @*-----------------------------------------Displaying the Videos using for loop Starts----------------------------------------*@
+
+
+                @foreach (var item in @ViewBag.videolist3)
+                {
+                    <video id="my-video" class="video-js1" controls preload="auto" width="300" height="300">
+                      
+                        <source src="@Url.Content(item)" type='video/mp4' />
+
+                      
+                    </video>
+
+                }
+
+                @*-----------------------------------------Displaying the Videos using for loop Ends----------------------------------------*@
+
+            </div>
+        </div>
+    </div>
+</div>
+@*------------------------------------------------Videos for Weight Lifting Ends------------------------------------------------------*@
+
+
+@*-------------------------------------------------Videos for High Intensity Starts---------------------------------------------------*@
+<div id="fh5co-started3" class="fh5co-bg" style="background-image: url('../../stamina/images/gallery-1.jpg');
+        height:auto;display:none;">
+    <div class="overlay"><a id="sate4">.</a></div>
+
+    <div class="container">
+        <a id="sat_scroll_highintensity">
+            <div class="row animate-box">
+                <div class="col-md-8 col-md-offset-2 text-center">
+                    <h2 style="color:white">HighIntensity</h2>
+                </div>
+            </div>
+        </a>
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <div>
+                    <input type="button" id="btnshi" class="btn btn-default" value="click me">
+                </div>
+
+            </div>
+        </div>
+
+
+        <div id="btnshi-click" style="display:none;">
+            <div class="jumbotron" style="background-color:aliceblue;color:black">
+
+
+                @*----------------------------------Displaying the Videos using for loop Starts---------------------------------------*@
+
+
+                @foreach (var item in @ViewBag.videolist5)
+                {
+                    <video id="my-video" class="video-js1" controls preload="auto" width="300" height="300">
+                        
+                        <source src="@Url.Content(item)" type='video/mp4' />
+
+                     
+                    </video>
+
+                }
+
+                @*----------------------------------Displaying the Videos using for loop Ends------------------------------------------*@
+
+            </div>
+        </div>
+    </div>
+</div>
+@*------------------------------------------------------Videos for High Intensity Starts-----------------------------------------------*@
+
+
+
+@*------------------------------------------------------Java Script for Calorie Calculator Starts--------------------------------------*@
+<script>
+    var myTime;
+    var myDistance;
+    var myCalorie;
+    //function validate(myTime) {
+    //    if (myTime.isNull) {
+    //        return false;
+    //    } else {
+    //        return true;
+    //    }
+    //}
+    function calculate(form) {
+       
+        var e = document.getElementById("ddlExercise");
+        var strUser = e.options[e.selectedIndex].value;
+        var Time = document.getElementById("TBTime").value;
+        var Distance = document.getElementById("TBDistance").value;
+        //var ans = validate(Time);
+        //if (ans) {
+        //    document.getElementById("testtime").innerHTML("error");
+        //}
+        //alert(Distance);
+        // alert(strUser + " " + Time + " " + Distance);
+        //if (strUser == "1")
+        //{
+        //    alert("in in ");
+        //}
+        //if (Time == null) {
+        //    document.getElementById("testtime").innerHTML("error");
+        //}
+        switch (strUser) {
+            case "1":
+                myCalorie = (('@ViewBag.weight' * 1.7389) + 0.77496) * Time / 4.184;
+            
+                document.getElementById("TBCalorie").value = myCalorie.toFixed();
+                break;
+            case "2":
+                myCalorie = (('@ViewBag.weight' * 1.7389) + 0.77496) * Time / 4.184;
+             
+                document.getElementById("TBCalorie").value = myCalorie.toFixed();
+                break;
+            case "3":
+                myCalorie = (('@ViewBag.weight' * 1.7389) + 0.77496) * Time / 4.184;
+              
+                document.getElementById("TBCalorie").value = myCalorie.toFixed();
+                break;
+            case "4":
+
+                myCalorie = (('@ViewBag.age' * 2.3785) + ('@ViewBag.weight' * 1.7389) + 0.77496) * Time / 4.184;
+            
+               
+                document.getElementById("TBCalorie").value = myCalorie.toFixed();
+                break;
+            case "5":
+                myCalorie = (('@ViewBag.age' * 2.3785) + ('@ViewBag.weight' * 1.7389) + 0.77496) * Time / 8.184;
+              
+              //alert(strUser + " " + Time + " " + Distance + " " + myCalorie);
+                document.getElementById("TBCalorie").value = myCalorie.toFixed();
+                break;
+            case "10":
+                
+                myCalorie = (('@ViewBag.weight' * 1.7389) + 0.77496) * Time / 4.184;
+             
+                document.getElementById("TBCalorie").value = myCalorie.toFixed();
+                break;
+            case "12":
+                myCalorie = (('@ViewBag.weight' * 1.7389) + 0.77496) * Time / 4.184;
+            
+                document.getElementById("TBCalorie").value = myCalorie.toFixed();
+                break;
+            case "13":
+                myCalorie = (('@ViewBag.weight' * 1.7389) + 0.77496) * Time / 4.184;
+              
+                document.getElementById("TBCalorie").value = myCalorie.toFixed();
+                break;
+            case "14":
+                myCalorie = (('@ViewBag.weight' * 1.7389) + 0.77496) * Time / 4.184;
+          
+                document.getElementById("TBCalorie").value = myCalorie.toFixed();
+                break;
+            default:
+                break;
+
+        }
+        //$(document).ready(function () {
+        //    $("#calbtn").click(function () {
+        //        $("#savebtn").show();
+        //    });
+        //});
+    }
+
+</script>
+@*----------------------------------------------------Java Script for Calorie Calculator Ends-----------------------------------------*@
+
+@*--------------------------------------------------Form for Calorie Calculator Starts------------------------------------------------*@
+
+@*<div style="text-align:center">
+    <div class="jumbotron">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="well">*@
+<div>
+    <div id="LoginForm">
+        <div class="container-fluid">
+            <div class="login-form">
+                <div class="main-div">
+
+                    <h2>Calories Calculator</h2>
+                    @*--------------------------Form Starts-----------------------------------------------------*@
+                    @using (Html.BeginForm("Dashboard", "PersonalDashboard"))
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="form-horizontal">
+
+                            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                            @*//Inder form*@
+                            <div>
+                                @Html.DropDownList("ddlExercise", Session["Exercises"] as SelectList, "--select--", new { @class = "form-control",required="required" })
+                            </div>
+                            <div class="editor-label">
+                                @Html.Label("Time")
+                            </div>
+                            <p id="testtime"></p>
+                            <div class="editor-field">
+                                @Html.TextBox("TBTime", null, new { @class = "form-control", required = "required", placeholder = "Enter time in minutes" })
+                                @Html.ValidationMessage("TBTime", "", new { @class = "text-danger" })
+
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.Label("Distance")
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBox("TBDistance", null, new { @class = "form-control", @Value = "1", required = "required" })
+                                @Html.ValidationMessage("TBDistance", "", new { @class = "text-danger" })
+                            </div>
+
+                            <div class="editor-label">
+                                @Html.Label("Calories")
+                            </div>
+                            <div class="editor-field">
+                                @Html.TextBox("TBCalorie", null, new { @class = "form-control", @readonly = "readonly" })
+                            </div>
+
+                            <p>
+                                <input type="submit" onclick="calculate(this.form)" value="Calculate" />
+                            </p>
+                        </div>
+                    }
+                    @*--------------------------------------------------Form Ends---------------------------------------------------*@
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*--------------------------------------------------Form for Calorie Calculator Ends---------------------------------------------------*@
+@*</div>
+
+                </div>
+            </div>
+        </div>
+
+    </div>*@
+
+
+
+
+
+
+

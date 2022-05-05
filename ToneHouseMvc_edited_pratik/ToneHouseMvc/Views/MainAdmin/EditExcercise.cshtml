@@ -1,0 +1,103 @@
+﻿@model ToneHouseMvc.Models.tb_Exercise
+
+@{
+    ViewBag.Title = "EditExcercise";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+<link href="~/stamina/css/Login_style.css" rel="stylesheet" />
+<div>
+    <div id="LoginForm">
+        <div class="container-fluid">
+            <div class="login-form">
+                <div class="main-div">
+                    
+
+                        @using (Html.BeginForm("EditExcercise", "MainAdmin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                        {
+                            @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.ExerciseId)
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.WorkoutId, "WorkoutId", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @Html.DropDownList("WorkoutName", new SelectList(ViewBag.workout), htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.WorkoutId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.GroupId, "GroupId", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @Html.DropDownList("GroupName", new SelectList(ViewBag.group), htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.GroupId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TypeId, "TypeId", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @Html.DropDownList("TypeName", new SelectList(ViewBag.type), htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.TypeId, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ExerciseName, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.ExerciseName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ExerciseName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ExerciseDescription, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.ExerciseDescription, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.ExerciseDescription, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        @*<div class="form-group">
+            @Html.LabelFor(model => model.ImagePath, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ImagePath, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ImagePath, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+                        @*<div class="form-group">
+                            @Html.LabelFor(model => model.VideoPath, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.VideoPath, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.VideoPath, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.VideoPath, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                <input type="file" name="VideoUpload" required />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-8">
+                                <input type="submit" value="Save" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                        }
+
+                        <div>
+                            @Html.ActionLink("Back to List", "DisplayExercise")
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

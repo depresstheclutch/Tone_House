@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="94cbd0208f494a538918b3f1e4164e21" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="db_TheToneHouseModel.tb_Diet" Width="1.5" PointX="3" PointY="4.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_TheToneHouseModel.tb_Exercise" Width="1.5" PointX="5.25" PointY="8.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_TheToneHouseModel.tb_ExerciseGroup" Width="1.5" PointX="3" PointY="9" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_TheToneHouseModel.tb_Payment" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_TheToneHouseModel.tb_PersonalDetails" Width="1.5" PointX="10" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_TheToneHouseModel.tb_PlanOpted" Width="1.5" PointX="13" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_TheToneHouseModel.tb_SignUp" Width="1.5" PointX="7.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_TheToneHouseModel.tb_Type" Width="1.5" PointX="0.75" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="db_TheToneHouseModel.tb_Workout" Width="1.5" PointX="3" PointY="11.5" IsExpanded="true" />
+        <AssociationConnector Association="db_TheToneHouseModel.FK_tb_Diet_tb_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="db_TheToneHouseModel.FK_tb_Exercise_tb_ExerciseGroup" ManuallyRouted="false" />
+        <AssociationConnector Association="db_TheToneHouseModel.FK_tb_Exercise_tb_Type" ManuallyRouted="false" />
+        <AssociationConnector Association="db_TheToneHouseModel.FK_tb_Exercise_tb_Workout" ManuallyRouted="false" />
+        <AssociationConnector Association="db_TheToneHouseModel.FK_tb_PlanOpted_tb_Payment" ManuallyRouted="false" />
+        <AssociationConnector Association="db_TheToneHouseModel.FK_tb_User_tb_SignUp" ManuallyRouted="false" />
+        <AssociationConnector Association="db_TheToneHouseModel.FK_tb_PlanOpted_tb_SignUp" ManuallyRouted="false" />
+        <AssociationConnector Association="db_TheToneHouseModel.FK_tb_Workout_tb_Type" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="db_TheToneHouseModel.sysdiagram" Width="1.5" PointX="0.75" PointY="0.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_TheToneHouseModelStoreContainer" CdmEntityContainer="db_TheToneHouseEntities">
+    <EntitySetMapping Name="tb_SignUp">
+      <EntityTypeMapping TypeName="db_TheToneHouseModel.tb_SignUp">
+        <MappingFragment StoreEntitySet="tb_SignUp">
+          <ScalarProperty Name="SignUp_Id" ColumnName="SignUp_Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

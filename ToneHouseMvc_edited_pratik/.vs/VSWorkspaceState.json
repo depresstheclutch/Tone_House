@@ -1,0 +1,16 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\ToneHouseMvc",
+    "\\ToneHouseMvc\\Controllers",
+    "\\ToneHouseMvc\\stamina",
+    "\\ToneHouseMvc\\stamina\\css\\bootstrap-3.3.7-dist",
+    "\\ToneHouseMvc\\Views",
+    "\\ToneHouseMvc\\Views\\Join",
+    "\\ToneHouseMvc\\Views\\Login",
+    "\\ToneHouseMvc\\Views\\PersonalDashboard",
+    "\\ToneHouseMvc\\Views\\Shared"
+  ],
+  "SelectedNode": "\\ToneHouseMvc\\stamina\\css",
+  "PreviewInSolutionExplorer": false
+}

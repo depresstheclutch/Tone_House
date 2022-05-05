@@ -1,0 +1,285 @@
+﻿@model ToneHouseMvc.Models.Ajax
+@{
+    ViewBag.Title = "The Tone House - Home Page";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+@*---------------------------------------------------Header Division Starts----------------------------------------------------------*@
+
+<link href="~/stamina/css/Login_style.css" rel="stylesheet" />
+<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image: url('../../stamina/images/home-carousel.jpg');
+" data-stellar-background-ratio="0.1">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <div class="display-t">
+                    <div class="display-tc animate-box" data-animate-effect="fadeIn">
+                        <h1>Make it a lifestyle, not a duty</h1>
+                        <h2>Lets Work Out Together and Burn Calories.<a href="#" target="_blank"></a></h2>
+                        <p>
+                            <a href="https://www.youtube.com/watch?v=EykWcFEtFqo" class="btn btn-primary popup-vimeo">
+                                Have a Motivation!
+                            </a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+@*------------------------------------------------------Header Division Ends---------------------------------------------------------*@
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+@using (Html.BeginForm())
+{
+    @*-----------------------collapse for Fitness Squad Starts-----------------------------------------------*@
+<div class="panel-group" id="accordion">
+  @Html.Partial("FitnessSquadPartial")
+    @*---------------------------------------Collapse for Fitness Squad Ends-------------------------------------------------------*@
+
+    @*--------------------------------------Collapse for Gallery Starts------------------------------------------------------------*@
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h4 class="panel-title" style="text-align:center;">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                    Gallery&nbsp;<span class="caret"></span>
+                </a>
+            </h4>
+        </div>
+        <div id="collapse2" class="panel-collapse collapse">
+            <div class="panel-body">
+                <div id="fh5co-gallery">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+                                <h2>Gallery</h2>
+                                <p>
+                                    Physical fitness is not only one of the most important keys to a healthy body, it is the basis of dynamic and creative intellectual activity.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="container-fluid">
+                        <div class="row row-bottom-padded-md">
+                            <div class="col-md-12">
+                                <ul id="fh5co-portfolio-list">
+
+                                    <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url('../../stamina/images/home-gallery1.jpg');">
+                                        <a>
+                                            <div class="case-studies-summary">
+                                                <span>WEIGHT GAIN</span>
+                                                <h2>Weight Lifting</h2>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url('../../stamina/images/home-gallery2.jpg'); ">
+                                        <a>
+                                            <div class="case-studies-summary">
+                                                <span>Running</span>
+                                                <h2>Along A Track</h2>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url('../../stamina/images/home-gallery3.jpg');">
+                                        <a>
+                                            <div class="case-studies-summary">
+                                                <span>Yoga</span>
+                                                <h2>Every Day Must</h2>
+                                            </div>
+                                        </a>
+                                    </li>
+
+                                    <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url('../../stamina/images/home-gallery4.jpg'); ">
+                                        <a>
+                                            <div class="case-studies-summary">
+                                                <span>Aerobics</span>
+                                                <h2>Fun Activity</h2>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url('../../stamina/images/home-gallery5.jpg');">
+                                        <a>
+                                            <div class="case-studies-summary">
+                                                <span>Meditation</span>
+                                                <h2>Peace Of Mind</h2>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="two-third animate-box" data-animate-effect="fadeIn" style="background-image: url('../../stamina/images/home-gallery6.jpg');">
+                                        <a>
+                                            <div class="case-studies-summary">
+                                                <span>Cycling</span>
+                                                <h2>Fun Along The Street</h2>
+                                            </div>
+                                        </a>
+                                    </li>
+                                    <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url('../../stamina/images/home-gallery7.jpg'); ">
+                                        <a>
+                                            <div class="case-studies-summary">
+                                                <span>Motivated</span>
+                                                <h2>Keep Working Out</h2>
+                                            </div>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*---------------------------------------Collapse for Gallery Ends-------------------------------------------------------------*@
+
+    @*-----------------------------------------------Collapse for Join Now Starts-------------------------------------------------*@
+   
+   
+        <div class="panel panel-default" id="about">
+            <div class="panel-heading">
+                <h2 class="panel-title" style="text-align:center;">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                        Know Us&nbsp;<span class="caret"></span>
+                    </a>
+                </h2>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+                <div class="panel-body">
+                    <div id="fh5co-started" class="fh5co-bg" style="background-image: url('../../stamina/images/home-discount.jpg');">
+                        <div class="overlay"></div>
+                        <div class="container">
+                            <div class="row animate-box">
+                                <div class="col-md-8 col-md-offset-2 text-center">
+                                    <h2>Know Our Team and Get in Touch<br></h2>
+                                </div>
+                            </div>
+                            <div class="row animate-box">
+                                <div class="col-md-8 col-md-offset-2 text-center">
+                                    <p><a href=@Url.Action("About","Start") class="btn btn-default btn-lg">About Us</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    
+
+    @*-----------------------------------------Collapse for Join Now Ends---------------------------------------------------------*@
+
+    @*-------------------------------------------Collapse for Events Starts--------------------------------------------------------*@
+    <div class="panel panel-default" id="blog">
+        <div class="panel-heading">
+            <h2 class="panel-title" style="text-align:center;">
+                <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                    Events&nbsp;<span class="caret"></span>
+                </a>
+            </h2>
+        </div>
+        <div id="collapse4" class="panel-collapse collapse">
+            <div class="panel-body">
+                <div id="fh5co-blog" class="fh5co-bg-section">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+                                <h2>Gym Events - Blog</h2>
+                                <p>Some events organized by the users to make their Gym Experience more exciting. </p>
+                            </div>
+                        </div>
+                        <div class="row row-bottom-padded-md">
+                            <div class="col-lg-4 col-md-4">
+                                <div class="fh5co-blog animate-box">
+                                    <a href="#">
+                                        <img class="img-responsive" src="~/stamina/images/home-events1.jpg" alt="" style="width:100%; height:300px">
+                                    </a>
+                                    <div class="blog-text">
+                                        <h3><a href="#">In-Club Competitions</a></h3>
+                                        <span class="posted_on">March. 05th</span>
+                                        <p>Competitions and challenges are a great way to build a sense of community, which in turn boosts retention. Make them fair and appealing to everyone by having categories for different abilities</p>
+
+                                        <p>
+                                            <a href="https://www.healthline.com/health/best-healthy-living-blogs" class="btn btn-primary popup-vimeo">
+                                                Read More
+                                            </a>
+                                        </p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4">
+                                <div class="fh5co-blog animate-box">
+                                    <a href="#">
+                                        <img class="img-responsive" src="~/stamina/images/home-events2.jpg" alt="" style="width:100%; height:300px">
+                                    </a>
+                                    <div class="blog-text">
+                                        <h3><a href="#">Tasting Events</a></h3>
+                                        <span class="posted_on">Sep. 15th</span>
+                                        <p>People love to sample smoothies, healthy snacks, or even entire seasonal menus! Encourage them to post about their experience on social media, and spread the word about your new offering.</p>
+                                        <p>
+                                            <a href="http://www.hemsleyandhemsley.com/" class="btn btn-primary popup-vimeo">
+                                                Read More
+                                            </a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4">
+                                <div class="fh5co-blog animate-box">
+                                    <a href="#">
+                                        <img class="img-responsive" src="~/stamina/images/home-events3.jpg" alt="" style="width:100%; height:300px">
+                                    </a>
+                                    <div class="blog-text">
+                                        <h3><a href="#">Social Events</a></h3>
+                                        <span class="posted_on">June. 24th</span>
+                                        <p>Why not go out for a group dinner after your Friday night Spin class? Or a non-alcoholic night out on the town with your gym friends? It’ll build social bonds between participants, so they’re less likely to quit.</p>
+                                        <p>
+                                            <a href="https://www.inkin.com/blog/en/13" class="btn btn-primary popup-vimeo">
+                                                Read More
+                                            </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    @*-----------------------------------------Collapse for Events Ends-------------------------------------------------------------*@
+</div>
+    <div>
+        <div id="LoginForm">
+            <div class="container-fluid">
+                <div class="login-form">
+                    <div class="main-div">
+                        <div class="container-fluid">
+                            <h2>Know your workout plan !</h2>
+                            <div class="form-group">
+                                @if (ViewBag.GroupList != null)
+                                {
+                                    @Html.DropDownListFor(model => model.GroupId, ViewBag.GroupList as SelectList, "--select your group--", new { @class = "form-control " })
+                                }
+                            </div>
+                            <div class="form-group">
+                                @Html.DropDownListFor(model => model.ExerciseId, new SelectList(" "), "--select your exercise--", new { @class = "form-control " })
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $("#GroupId").change(function () {
+                $.get("/Start/GetGroupList", { GroupId: $("#GroupId").val() }, function (data) {
+                    $("#ExerciseId").empty();
+                    $.each(data, function (index, row) {
+                        $("#ExerciseId").append("<option value='" + row.ExerciseId + "'>" + row.ExerciseName + "</option>")
+                    });
+                });
+            })
+        });
+    </script>
+
+}
+

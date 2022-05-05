@@ -1,0 +1,79 @@
+﻿@model ToneHouseMvc.Models.tb_Exercise
+
+@{
+    ViewBag.Title = "DeleteExcercise";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<div>
+   
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ExerciseName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExerciseName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExerciseDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExerciseDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ImagePath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VideoPath)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VideoPath)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tb_ExerciseGroup.GroupName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tb_ExerciseGroup.GroupName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tb_Type.TypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tb_Type.TypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tb_Workout.WorkoutName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tb_Workout.WorkoutName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "DisplayExercise")
+        </div>
+    }
+</div>

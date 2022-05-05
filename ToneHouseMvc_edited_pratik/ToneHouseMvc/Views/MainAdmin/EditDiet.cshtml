@@ -1,0 +1,91 @@
+﻿@model ToneHouseMvc.Models.tb_Diet
+
+@{
+    ViewBag.Title = "EditDiet";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+<link href="~/stamina/css/Login_style.css" rel="stylesheet" />
+<div>
+    <div id="LoginForm">
+        <div class="container-fluid">
+            <div class="login-form">
+                <div class="main-div">
+                    @using (Html.BeginForm("EditDiet", "MainAdmin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.HiddenFor(model => model.DietID)
+
+                        @*<div class="form-group">
+                            @Html.LabelFor(model => model.TypeID, "Type", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @Html.DropDownList("TypeID", new SelectList(ViewBag.type), "--select--", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.TypeID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TypeID, "Type", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @Html.DropDownList("TypeName", new SelectList(ViewBag.type), htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.TypeID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DishName, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.DishName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.DishName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.Label("Dish Description", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @*@Html.EditorFor(model => model.DishDes, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.TextArea("DishDes", new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.DishDes, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DishTime, "DishTime", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @Html.DropDownList("DishTime", new SelectList(ViewBag.dishtime), htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.DishTime, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        @*<div class="form-group">
+            @Html.LabelFor(model => model.DishTime, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DishTime, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DishTime, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ImagePath, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-8">
+                                <input type="file" name="ImageUpload" required />
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-8">
+                                <input type="submit" value="Save" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+                    }
+
+                    <div>
+                        @Html.ActionLink("Back to List", "DisplayDiet")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,87 @@
+﻿@model ToneHouseMvc.Models.tb_Diet
+
+@{
+    ViewBag.Title = "Create Diet";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+<link href="~/stamina/css/Login_style.css" rel="stylesheet" />
+<div>
+    <div id="LoginForm">
+        <div class="container-fluid">
+            <div class="login-form">
+                <div class="main-div">
+                    @using (Html.BeginForm("CreateDiet", "MainAdmin", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        @Html.AntiForgeryToken()
+
+                    <div class="form-horizontal">
+
+
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @*<div class="form-group">
+                            @Html.LabelFor(model => model.TypeID, "Type", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @Html.DropDownList("TypeID", new SelectList(ViewBag.type), htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.TypeID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>*@
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.TypeID, "Type", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @Html.DropDownList("TypeName", new SelectList(ViewBag.type), htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.TypeID, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DishName, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @Html.EditorFor(model => model.DishName, new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.DishName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DishTime, "DishTime", htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @Html.DropDownList("DishTime", new SelectList(ViewBag.dishtime), "Select Dish", htmlAttributes: new { @class = "form-control" })
+                                @Html.ValidationMessageFor(model => model.DishTime, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.DishDes, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @*@Html.EditorFor(model => model.DishDes, new { htmlAttributes = new { @class = "form-control" } })*@
+                                @Html.TextArea("DishDes", new { htmlAttributes = new { @class = "form-control" } })
+                                @Html.ValidationMessageFor(model => model.DishDes, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            @Html.LabelFor(model => model.ImagePath, htmlAttributes: new { @class = "control-label col-md-4" })
+                            <div class="col-md-7">
+                                @*@Html.EditorFor(model => model.ImagePath, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ImagePath, "", new { @class = "text-danger" })*@
+                                <input type="file" name="ImageUpload" required />
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-8">
+                                <input type="submit" value="Create Diet" class="btn btn-default" />
+                            </div>
+                        </div>
+                    </div>
+
+                    }
+
+                    <div>
+                        @Html.ActionLink("Back to List", "DisplayDiet")
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,759 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="db_TheToneHouseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="tb_Diet">
+          <Key>
+            <PropertyRef Name="DietID" />
+          </Key>
+          <Property Name="DietID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeID" Type="int" Nullable="false" />
+          <Property Name="DishName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="DishDes" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="DishTime" Type="nvarchar(max)" />
+          <Property Name="ImagePath" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tb_Exercise">
+          <Key>
+            <PropertyRef Name="ExerciseId" />
+          </Key>
+          <Property Name="ExerciseId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorkoutId" Type="int" Nullable="false" />
+          <Property Name="GroupId" Type="int" Nullable="false" />
+          <Property Name="TypeId" Type="int" Nullable="false" />
+          <Property Name="ExerciseName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="ExerciseDescription" Type="nvarchar(max)" />
+          <Property Name="ImagePath" Type="nvarchar" MaxLength="50" />
+          <Property Name="VideoPath" Type="nvarchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="tb_ExerciseGroup">
+          <Key>
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="GroupId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GroupName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_Payment">
+          <Key>
+            <PropertyRef Name="PaymentID" />
+          </Key>
+          <Property Name="PaymentID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Duration" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Amount" Type="money" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_PersonalDetails">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SignUpId" Type="int" Nullable="false" />
+          <Property Name="Age" Type="tinyint" Nullable="false" />
+          <Property Name="Height" Type="float" Nullable="false" />
+          <Property Name="Weight" Type="float" Nullable="false" />
+          <Property Name="BloodGroup" Type="nvarchar" MaxLength="50" />
+          <Property Name="Gender" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PhoneNo" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="PhotoPath" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="tb_PlanOpted">
+          <Key>
+            <PropertyRef Name="PlanOptedId" />
+          </Key>
+          <Property Name="PlanOptedId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="UserId" Type="int" Nullable="false" />
+          <Property Name="ExerciseId" Type="int" Nullable="false" />
+          <Property Name="Time" Type="float" />
+          <Property Name="Distance" Type="float" />
+          <Property Name="Calories" Type="float" />
+          <Property Name="PaymentId" Type="int" />
+        </EntityType>
+        <EntityType Name="tb_SignUp">
+          <Key>
+            <PropertyRef Name="SignUp_Id" />
+          </Key>
+          <Property Name="SignUp_Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="MiddleName" Type="nvarchar" MaxLength="50" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Password" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_Type">
+          <Key>
+            <PropertyRef Name="TypeId" />
+          </Key>
+          <Property Name="TypeId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TypeName" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="tb_Workout">
+          <Key>
+            <PropertyRef Name="WorkoutId" />
+          </Key>
+          <Property Name="WorkoutId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WorkoutName" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="TypeId" Type="int" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_tb_Diet_tb_Type">
+          <End Role="tb_Type" Type="Self.tb_Type" Multiplicity="1" />
+          <End Role="tb_Diet" Type="Self.tb_Diet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Type">
+              <PropertyRef Name="TypeId" />
+            </Principal>
+            <Dependent Role="tb_Diet">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_Exercise_tb_ExerciseGroup">
+          <End Role="tb_ExerciseGroup" Type="Self.tb_ExerciseGroup" Multiplicity="1" />
+          <End Role="tb_Exercise" Type="Self.tb_Exercise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_ExerciseGroup">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="tb_Exercise">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_Exercise_tb_Type">
+          <End Role="tb_Type" Type="Self.tb_Type" Multiplicity="1" />
+          <End Role="tb_Exercise" Type="Self.tb_Exercise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Type">
+              <PropertyRef Name="TypeId" />
+            </Principal>
+            <Dependent Role="tb_Exercise">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_Exercise_tb_Workout">
+          <End Role="tb_Workout" Type="Self.tb_Workout" Multiplicity="1" />
+          <End Role="tb_Exercise" Type="Self.tb_Exercise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Workout">
+              <PropertyRef Name="WorkoutId" />
+            </Principal>
+            <Dependent Role="tb_Exercise">
+              <PropertyRef Name="WorkoutId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_PlanOpted_tb_Payment">
+          <End Role="tb_Payment" Type="Self.tb_Payment" Multiplicity="0..1" />
+          <End Role="tb_PlanOpted" Type="Self.tb_PlanOpted" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Payment">
+              <PropertyRef Name="PaymentID" />
+            </Principal>
+            <Dependent Role="tb_PlanOpted">
+              <PropertyRef Name="PaymentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_PlanOpted_tb_SignUp">
+          <End Role="tb_SignUp" Type="Self.tb_SignUp" Multiplicity="1" />
+          <End Role="tb_PlanOpted" Type="Self.tb_PlanOpted" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_SignUp">
+              <PropertyRef Name="SignUp_Id" />
+            </Principal>
+            <Dependent Role="tb_PlanOpted">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_User_tb_SignUp">
+          <End Role="tb_SignUp" Type="Self.tb_SignUp" Multiplicity="1" />
+          <End Role="tb_PersonalDetails" Type="Self.tb_PersonalDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_SignUp">
+              <PropertyRef Name="SignUp_Id" />
+            </Principal>
+            <Dependent Role="tb_PersonalDetails">
+              <PropertyRef Name="SignUpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_Workout_tb_Type">
+          <End Role="tb_Type" Type="Self.tb_Type" Multiplicity="1" />
+          <End Role="tb_Workout" Type="Self.tb_Workout" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Type">
+              <PropertyRef Name="TypeId" />
+            </Principal>
+            <Dependent Role="tb_Workout">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="Sp_DietDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="Sp_DisplayDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+        <Function Name="usp_Insert_tb_PersonalDetails" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="SignUpId" Type="int" Mode="In" />
+          <Parameter Name="Age" Type="tinyint" Mode="In" />
+          <Parameter Name="Height" Type="numeric" Mode="In" />
+          <Parameter Name="weight" Type="numeric" Mode="In" />
+          <Parameter Name="BloodGroup" Type="numeric" Mode="In" />
+          <Parameter Name="Gender" Type="nvarchar" Mode="In" />
+          <Parameter Name="PhoneNo" Type="nvarchar" Mode="In" />
+          <Parameter Name="PhotoPath" Type="nvarchar(max)" Mode="In" />
+        </Function>
+        <Function Name="usp_Insert_tb_PlanOpted" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="UserId" Type="int" Mode="In" />
+          <Parameter Name="ExerciseId" Type="int" Mode="In" />
+          <Parameter Name="Time" Type="time" Mode="In" />
+          <Parameter Name="Distance" Type="float" Mode="In" />
+          <Parameter Name="Calories" Type="float" Mode="In" />
+          <Parameter Name="PaymentId" Type="int" Mode="In" />
+        </Function>
+        <Function Name="usp_Insert_tb_SignUp" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="FirstName" Type="nvarchar" Mode="In" />
+          <Parameter Name="MiddleName" Type="nvarchar" Mode="In" />
+          <Parameter Name="LastName" Type="nvarchar" Mode="In" />
+          <Parameter Name="Email" Type="nvarchar" Mode="In" />
+          <Parameter Name="Password" Type="nvarchar" Mode="In" />
+        </Function>
+        <EntityContainer Name="db_TheToneHouseModelStoreContainer">
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Diet" EntityType="Self.tb_Diet" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Exercise" EntityType="Self.tb_Exercise" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_ExerciseGroup" EntityType="Self.tb_ExerciseGroup" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Payment" EntityType="Self.tb_Payment" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_PersonalDetails" EntityType="Self.tb_PersonalDetails" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_PlanOpted" EntityType="Self.tb_PlanOpted" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_SignUp" EntityType="Self.tb_SignUp" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Type" EntityType="Self.tb_Type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="tb_Workout" EntityType="Self.tb_Workout" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_tb_Diet_tb_Type" Association="Self.FK_tb_Diet_tb_Type">
+            <End Role="tb_Type" EntitySet="tb_Type" />
+            <End Role="tb_Diet" EntitySet="tb_Diet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_Exercise_tb_ExerciseGroup" Association="Self.FK_tb_Exercise_tb_ExerciseGroup">
+            <End Role="tb_ExerciseGroup" EntitySet="tb_ExerciseGroup" />
+            <End Role="tb_Exercise" EntitySet="tb_Exercise" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_Exercise_tb_Type" Association="Self.FK_tb_Exercise_tb_Type">
+            <End Role="tb_Type" EntitySet="tb_Type" />
+            <End Role="tb_Exercise" EntitySet="tb_Exercise" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_Exercise_tb_Workout" Association="Self.FK_tb_Exercise_tb_Workout">
+            <End Role="tb_Workout" EntitySet="tb_Workout" />
+            <End Role="tb_Exercise" EntitySet="tb_Exercise" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_PlanOpted_tb_Payment" Association="Self.FK_tb_PlanOpted_tb_Payment">
+            <End Role="tb_Payment" EntitySet="tb_Payment" />
+            <End Role="tb_PlanOpted" EntitySet="tb_PlanOpted" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_PlanOpted_tb_SignUp" Association="Self.FK_tb_PlanOpted_tb_SignUp">
+            <End Role="tb_SignUp" EntitySet="tb_SignUp" />
+            <End Role="tb_PlanOpted" EntitySet="tb_PlanOpted" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_User_tb_SignUp" Association="Self.FK_tb_User_tb_SignUp">
+            <End Role="tb_SignUp" EntitySet="tb_SignUp" />
+            <End Role="tb_PersonalDetails" EntitySet="tb_PersonalDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_Workout_tb_Type" Association="Self.FK_tb_Workout_tb_Type">
+            <End Role="tb_Type" EntitySet="tb_Type" />
+            <End Role="tb_Workout" EntitySet="tb_Workout" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="db_TheToneHouseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="tb_Diet">
+          <Key>
+            <PropertyRef Name="DietID" />
+          </Key>
+          <Property Name="DietID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeID" Type="Int32" Nullable="false" />
+          <Property Name="DishName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DishDes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="DishTime" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImagePath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tb_Type" Relationship="Self.FK_tb_Diet_tb_Type" FromRole="tb_Diet" ToRole="tb_Type" />
+        </EntityType>
+        <EntityType Name="tb_Exercise">
+          <Key>
+            <PropertyRef Name="ExerciseId" />
+          </Key>
+          <Property Name="ExerciseId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WorkoutId" Type="Int32" Nullable="false" />
+          <Property Name="GroupId" Type="Int32" Nullable="false" />
+          <Property Name="TypeId" Type="Int32" Nullable="false" />
+          <Property Name="ExerciseName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ExerciseDescription" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ImagePath" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="VideoPath" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tb_ExerciseGroup" Relationship="Self.FK_tb_Exercise_tb_ExerciseGroup" FromRole="tb_Exercise" ToRole="tb_ExerciseGroup" />
+          <NavigationProperty Name="tb_Type" Relationship="Self.FK_tb_Exercise_tb_Type" FromRole="tb_Exercise" ToRole="tb_Type" />
+          <NavigationProperty Name="tb_Workout" Relationship="Self.FK_tb_Exercise_tb_Workout" FromRole="tb_Exercise" ToRole="tb_Workout" />
+        </EntityType>
+        <EntityType Name="tb_ExerciseGroup">
+          <Key>
+            <PropertyRef Name="GroupId" />
+          </Key>
+          <Property Name="GroupId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GroupName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tb_Exercise" Relationship="Self.FK_tb_Exercise_tb_ExerciseGroup" FromRole="tb_ExerciseGroup" ToRole="tb_Exercise" />
+        </EntityType>
+        <EntityType Name="tb_Payment">
+          <Key>
+            <PropertyRef Name="PaymentID" />
+          </Key>
+          <Property Name="PaymentID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Duration" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Amount" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <NavigationProperty Name="tb_PlanOpted" Relationship="Self.FK_tb_PlanOpted_tb_Payment" FromRole="tb_Payment" ToRole="tb_PlanOpted" />
+        </EntityType>
+        <EntityType Name="tb_PersonalDetails">
+          <Key>
+            <PropertyRef Name="UserId" />
+          </Key>
+          <Property Name="UserId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SignUpId" Type="Int32" Nullable="false" />
+          <Property Name="Age" Type="Byte" Nullable="false" />
+          <Property Name="Height" Type="Double" Nullable="false" />
+          <Property Name="Weight" Type="Double" Nullable="false" />
+          <Property Name="BloodGroup" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Gender" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PhoneNo" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PhotoPath" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="tb_SignUp" Relationship="Self.FK_tb_User_tb_SignUp" FromRole="tb_PersonalDetails" ToRole="tb_SignUp" />
+        </EntityType>
+        <EntityType Name="tb_PlanOpted">
+          <Key>
+            <PropertyRef Name="PlanOptedId" />
+          </Key>
+          <Property Name="PlanOptedId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="UserId" Type="Int32" Nullable="false" />
+          <Property Name="ExerciseId" Type="Int32" Nullable="false" />
+          <Property Name="Time" Type="Double" />
+          <Property Name="Distance" Type="Double" />
+          <Property Name="Calories" Type="Double" />
+          <Property Name="PaymentId" Type="Int32" />
+          <NavigationProperty Name="tb_Payment" Relationship="Self.FK_tb_PlanOpted_tb_Payment" FromRole="tb_PlanOpted" ToRole="tb_Payment" />
+          <NavigationProperty Name="tb_SignUp" Relationship="Self.FK_tb_PlanOpted_tb_SignUp" FromRole="tb_PlanOpted" ToRole="tb_SignUp" />
+        </EntityType>
+        <EntityType Name="tb_SignUp">
+          <Key>
+            <PropertyRef Name="SignUp_Id" />
+          </Key>
+          <Property Name="SignUp_Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirstName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="MiddleName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="LastName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Password" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tb_PersonalDetails" Relationship="Self.FK_tb_User_tb_SignUp" FromRole="tb_SignUp" ToRole="tb_PersonalDetails" />
+          <NavigationProperty Name="tb_PlanOpted" Relationship="Self.FK_tb_PlanOpted_tb_SignUp" FromRole="tb_SignUp" ToRole="tb_PlanOpted" />
+        </EntityType>
+        <EntityType Name="tb_Type">
+          <Key>
+            <PropertyRef Name="TypeId" />
+          </Key>
+          <Property Name="TypeId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TypeName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="tb_Diet" Relationship="Self.FK_tb_Diet_tb_Type" FromRole="tb_Type" ToRole="tb_Diet" />
+          <NavigationProperty Name="tb_Exercise" Relationship="Self.FK_tb_Exercise_tb_Type" FromRole="tb_Type" ToRole="tb_Exercise" />
+          <NavigationProperty Name="tb_Workout" Relationship="Self.FK_tb_Workout_tb_Type" FromRole="tb_Type" ToRole="tb_Workout" />
+        </EntityType>
+        <EntityType Name="tb_Workout">
+          <Key>
+            <PropertyRef Name="WorkoutId" />
+          </Key>
+          <Property Name="WorkoutId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WorkoutName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="TypeId" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="tb_Exercise" Relationship="Self.FK_tb_Exercise_tb_Workout" FromRole="tb_Workout" ToRole="tb_Exercise" />
+          <NavigationProperty Name="tb_Type" Relationship="Self.FK_tb_Workout_tb_Type" FromRole="tb_Workout" ToRole="tb_Type" />
+        </EntityType>
+        <Association Name="FK_tb_Diet_tb_Type">
+          <End Role="tb_Type" Type="Self.tb_Type" Multiplicity="1" />
+          <End Role="tb_Diet" Type="Self.tb_Diet" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Type">
+              <PropertyRef Name="TypeId" />
+            </Principal>
+            <Dependent Role="tb_Diet">
+              <PropertyRef Name="TypeID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_Exercise_tb_ExerciseGroup">
+          <End Role="tb_ExerciseGroup" Type="Self.tb_ExerciseGroup" Multiplicity="1" />
+          <End Role="tb_Exercise" Type="Self.tb_Exercise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_ExerciseGroup">
+              <PropertyRef Name="GroupId" />
+            </Principal>
+            <Dependent Role="tb_Exercise">
+              <PropertyRef Name="GroupId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_Exercise_tb_Type">
+          <End Role="tb_Type" Type="Self.tb_Type" Multiplicity="1" />
+          <End Role="tb_Exercise" Type="Self.tb_Exercise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Type">
+              <PropertyRef Name="TypeId" />
+            </Principal>
+            <Dependent Role="tb_Exercise">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_Exercise_tb_Workout">
+          <End Role="tb_Workout" Type="Self.tb_Workout" Multiplicity="1" />
+          <End Role="tb_Exercise" Type="Self.tb_Exercise" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Workout">
+              <PropertyRef Name="WorkoutId" />
+            </Principal>
+            <Dependent Role="tb_Exercise">
+              <PropertyRef Name="WorkoutId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_PlanOpted_tb_Payment">
+          <End Role="tb_Payment" Type="Self.tb_Payment" Multiplicity="0..1" />
+          <End Role="tb_PlanOpted" Type="Self.tb_PlanOpted" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Payment">
+              <PropertyRef Name="PaymentID" />
+            </Principal>
+            <Dependent Role="tb_PlanOpted">
+              <PropertyRef Name="PaymentId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_User_tb_SignUp">
+          <End Role="tb_SignUp" Type="Self.tb_SignUp" Multiplicity="1" />
+          <End Role="tb_PersonalDetails" Type="Self.tb_PersonalDetails" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_SignUp">
+              <PropertyRef Name="SignUp_Id" />
+            </Principal>
+            <Dependent Role="tb_PersonalDetails">
+              <PropertyRef Name="SignUpId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_PlanOpted_tb_SignUp">
+          <End Role="tb_SignUp" Type="Self.tb_SignUp" Multiplicity="1" />
+          <End Role="tb_PlanOpted" Type="Self.tb_PlanOpted" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_SignUp">
+              <PropertyRef Name="SignUp_Id" />
+            </Principal>
+            <Dependent Role="tb_PlanOpted">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_tb_Workout_tb_Type">
+          <End Role="tb_Type" Type="Self.tb_Type" Multiplicity="1" />
+          <End Role="tb_Workout" Type="Self.tb_Workout" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="tb_Type">
+              <PropertyRef Name="TypeId" />
+            </Principal>
+            <Dependent Role="tb_Workout">
+              <PropertyRef Name="TypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="db_TheToneHouseEntities2" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="tb_Diet" EntityType="Self.tb_Diet" />
+          <EntitySet Name="tb_Exercise" EntityType="Self.tb_Exercise" />
+          <EntitySet Name="tb_ExerciseGroup" EntityType="Self.tb_ExerciseGroup" />
+          <EntitySet Name="tb_Payment" EntityType="Self.tb_Payment" />
+          <EntitySet Name="tb_PersonalDetails" EntityType="Self.tb_PersonalDetails" />
+          <EntitySet Name="tb_PlanOpted" EntityType="Self.tb_PlanOpted" />
+          <EntitySet Name="tb_SignUp" EntityType="Self.tb_SignUp" />
+          <EntitySet Name="tb_Type" EntityType="Self.tb_Type" />
+          <EntitySet Name="tb_Workout" EntityType="Self.tb_Workout" />
+          <AssociationSet Name="FK_tb_Diet_tb_Type" Association="Self.FK_tb_Diet_tb_Type">
+            <End Role="tb_Type" EntitySet="tb_Type" />
+            <End Role="tb_Diet" EntitySet="tb_Diet" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_Exercise_tb_ExerciseGroup" Association="Self.FK_tb_Exercise_tb_ExerciseGroup">
+            <End Role="tb_ExerciseGroup" EntitySet="tb_ExerciseGroup" />
+            <End Role="tb_Exercise" EntitySet="tb_Exercise" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_Exercise_tb_Type" Association="Self.FK_tb_Exercise_tb_Type">
+            <End Role="tb_Type" EntitySet="tb_Type" />
+            <End Role="tb_Exercise" EntitySet="tb_Exercise" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_Exercise_tb_Workout" Association="Self.FK_tb_Exercise_tb_Workout">
+            <End Role="tb_Workout" EntitySet="tb_Workout" />
+            <End Role="tb_Exercise" EntitySet="tb_Exercise" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_PlanOpted_tb_Payment" Association="Self.FK_tb_PlanOpted_tb_Payment">
+            <End Role="tb_Payment" EntitySet="tb_Payment" />
+            <End Role="tb_PlanOpted" EntitySet="tb_PlanOpted" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_User_tb_SignUp" Association="Self.FK_tb_User_tb_SignUp">
+            <End Role="tb_SignUp" EntitySet="tb_SignUp" />
+            <End Role="tb_PersonalDetails" EntitySet="tb_PersonalDetails" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_PlanOpted_tb_SignUp" Association="Self.FK_tb_PlanOpted_tb_SignUp">
+            <End Role="tb_SignUp" EntitySet="tb_SignUp" />
+            <End Role="tb_PlanOpted" EntitySet="tb_PlanOpted" />
+          </AssociationSet>
+          <AssociationSet Name="FK_tb_Workout_tb_Type" Association="Self.FK_tb_Workout_tb_Type">
+            <End Role="tb_Type" EntitySet="tb_Type" />
+            <End Role="tb_Workout" EntitySet="tb_Workout" />
+          </AssociationSet>
+          <FunctionImport Name="usp_Insert_tb_PersonalDetails">
+            <Parameter Name="SignUpId" Mode="In" Type="Int32" />
+            <Parameter Name="Age" Mode="In" Type="Byte" />
+            <Parameter Name="Height" Mode="In" Type="Decimal" />
+            <Parameter Name="weight" Mode="In" Type="Decimal" />
+            <Parameter Name="BloodGroup" Mode="In" Type="Decimal" />
+            <Parameter Name="Gender" Mode="In" Type="String" />
+            <Parameter Name="PhoneNo" Mode="In" Type="String" />
+            <Parameter Name="PhotoPath" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Insert_tb_PlanOpted">
+            <Parameter Name="UserId" Mode="In" Type="Int32" />
+            <Parameter Name="ExerciseId" Mode="In" Type="Int32" />
+            <Parameter Name="Time" Mode="In" Type="Time" />
+            <Parameter Name="Distance" Mode="In" Type="Double" />
+            <Parameter Name="Calories" Mode="In" Type="Double" />
+            <Parameter Name="PaymentId" Mode="In" Type="Int32" />
+          </FunctionImport>
+          <FunctionImport Name="usp_Insert_tb_SignUp">
+            <Parameter Name="FirstName" Mode="In" Type="String" />
+            <Parameter Name="MiddleName" Mode="In" Type="String" />
+            <Parameter Name="LastName" Mode="In" Type="String" />
+            <Parameter Name="Email" Mode="In" Type="String" />
+            <Parameter Name="Password" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Sp_DietDetails" ReturnType="Collection(db_TheToneHouseModel.Sp_DietDetails_Result)" />
+          <FunctionImport Name="Sp_DisplayDetails" ReturnType="Collection(db_TheToneHouseModel.Sp_DisplayDetails_Result)" />
+          <EntitySet Name="sysdiagrams" EntityType="db_TheToneHouseModel.sysdiagram" />
+        </EntityContainer>
+        <ComplexType Name="Sp_DietDetails_Result">
+          <Property Type="Int32" Name="DietID" Nullable="false" />
+          <Property Type="Int32" Name="TypeId" Nullable="false" />
+          <Property Type="String" Name="TypeName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="DishName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="DishDes" Nullable="false" />
+          <Property Type="String" Name="DishTime" Nullable="true" />
+          <Property Type="String" Name="ImagePath" Nullable="true" />
+        </ComplexType>
+        <ComplexType Name="Sp_DisplayDetails_Result">
+          <Property Type="Int32" Name="ExerciseId" Nullable="false" />
+          <Property Type="Int32" Name="WorkoutId" Nullable="false" />
+          <Property Type="String" Name="WorkoutName" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="GroupId" Nullable="false" />
+          <Property Type="Int32" Name="TypeId" Nullable="false" />
+          <Property Type="String" Name="GroupName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="TypeName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ExerciseName" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="ExerciseDescription" Nullable="true" />
+          <Property Type="String" Name="ImagePath" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="VideoPath" Nullable="true" MaxLength="50" />
+        </ComplexType>
+        <EntityType Name="sysdiagram">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="true" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="db_TheToneHouseModelStoreContainer" CdmEntityContainer="db_TheToneHouseEntities2">
+          <EntitySetMapping Name="tb_Diet">
+            <EntityTypeMapping TypeName="db_TheToneHouseModel.tb_Diet">
+              <MappingFragment StoreEntitySet="tb_Diet">
+                <ScalarProperty Name="DietID" ColumnName="DietID" />
+                <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+                <ScalarProperty Name="DishName" ColumnName="DishName" />
+                <ScalarProperty Name="DishDes" ColumnName="DishDes" />
+                <ScalarProperty Name="DishTime" ColumnName="DishTime" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Exercise">
+            <EntityTypeMapping TypeName="db_TheToneHouseModel.tb_Exercise">
+              <MappingFragment StoreEntitySet="tb_Exercise">
+                <ScalarProperty Name="ExerciseId" ColumnName="ExerciseId" />
+                <ScalarProperty Name="WorkoutId" ColumnName="WorkoutId" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="ExerciseName" ColumnName="ExerciseName" />
+                <ScalarProperty Name="ExerciseDescription" ColumnName="ExerciseDescription" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="VideoPath" ColumnName="VideoPath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_ExerciseGroup">
+            <EntityTypeMapping TypeName="db_TheToneHouseModel.tb_ExerciseGroup">
+              <MappingFragment StoreEntitySet="tb_ExerciseGroup">
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Payment">
+            <EntityTypeMapping TypeName="db_TheToneHouseModel.tb_Payment">
+              <MappingFragment StoreEntitySet="tb_Payment">
+                <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+                <ScalarProperty Name="Amount" ColumnName="Amount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_PersonalDetails">
+            <EntityTypeMapping TypeName="db_TheToneHouseModel.tb_PersonalDetails">
+              <MappingFragment StoreEntitySet="tb_PersonalDetails">
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="SignUpId" ColumnName="SignUpId" />
+                <ScalarProperty Name="Age" ColumnName="Age" />
+                <ScalarProperty Name="Height" ColumnName="Height" />
+                <ScalarProperty Name="Weight" ColumnName="Weight" />
+                <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+                <ScalarProperty Name="Gender" ColumnName="Gender" />
+                <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+                <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_PlanOpted">
+            <EntityTypeMapping TypeName="db_TheToneHouseModel.tb_PlanOpted">
+              <MappingFragment StoreEntitySet="tb_PlanOpted">
+                <ScalarProperty Name="PlanOptedId" ColumnName="PlanOptedId" />
+                <ScalarProperty Name="UserId" ColumnName="UserId" />
+                <ScalarProperty Name="ExerciseId" ColumnName="ExerciseId" />
+                <ScalarProperty Name="Time" ColumnName="Time" />
+                <ScalarProperty Name="Distance" ColumnName="Distance" />
+                <ScalarProperty Name="Calories" ColumnName="Calories" />
+                <ScalarProperty Name="PaymentId" ColumnName="PaymentId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_SignUp">
+            <EntityTypeMapping TypeName="db_TheToneHouseModel.tb_SignUp">
+              <MappingFragment StoreEntitySet="tb_SignUp">
+                <ScalarProperty Name="SignUp_Id" ColumnName="SignUp_Id" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="Password" ColumnName="Password" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Type">
+            <EntityTypeMapping TypeName="db_TheToneHouseModel.tb_Type">
+              <MappingFragment StoreEntitySet="tb_Type">
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="tb_Workout">
+            <EntityTypeMapping TypeName="db_TheToneHouseModel.tb_Workout">
+              <MappingFragment StoreEntitySet="tb_Workout">
+                <ScalarProperty Name="WorkoutId" ColumnName="WorkoutId" />
+                <ScalarProperty Name="WorkoutName" ColumnName="WorkoutName" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="usp_Insert_tb_PersonalDetails" FunctionName="db_TheToneHouseModel.Store.usp_Insert_tb_PersonalDetails" />
+          <FunctionImportMapping FunctionImportName="usp_Insert_tb_PlanOpted" FunctionName="db_TheToneHouseModel.Store.usp_Insert_tb_PlanOpted" />
+          <FunctionImportMapping FunctionImportName="usp_Insert_tb_SignUp" FunctionName="db_TheToneHouseModel.Store.usp_Insert_tb_SignUp" />
+          <FunctionImportMapping FunctionImportName="Sp_DietDetails" FunctionName="db_TheToneHouseModel.Store.Sp_DietDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="db_TheToneHouseModel.Sp_DietDetails_Result">
+                <ScalarProperty Name="DietID" ColumnName="DietID" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="DishName" ColumnName="DishName" />
+                <ScalarProperty Name="DishDes" ColumnName="DishDes" />
+                <ScalarProperty Name="DishTime" ColumnName="DishTime" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Sp_DisplayDetails" FunctionName="db_TheToneHouseModel.Store.Sp_DisplayDetails">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="db_TheToneHouseModel.Sp_DisplayDetails_Result">
+                <ScalarProperty Name="ExerciseId" ColumnName="ExerciseId" />
+                <ScalarProperty Name="WorkoutId" ColumnName="WorkoutId" />
+                <ScalarProperty Name="WorkoutName" ColumnName="WorkoutName" />
+                <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+                <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+                <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+                <ScalarProperty Name="ExerciseName" ColumnName="ExerciseName" />
+                <ScalarProperty Name="ExerciseDescription" ColumnName="ExerciseDescription" />
+                <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+                <ScalarProperty Name="VideoPath" ColumnName="VideoPath" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="db_TheToneHouseModel.sysdiagram">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="definition" ColumnName="definition" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

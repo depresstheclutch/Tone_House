@@ -1,0 +1,79 @@
+﻿@model IEnumerable<ToneHouseMvc.Models.Sp_DisplayDetails_Result>
+
+@{
+    ViewBag.Title = "DisplayExercise";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<p>
+    @Html.ActionLink("Create New", "CreateExcercise")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ExerciseName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExerciseDescription)
+        </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.ImagePath)
+            </th>*@
+        <th>
+            @Html.DisplayNameFor(model => model.VideoPath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GroupName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WorkoutName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExerciseName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExerciseDescription)
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.ImagePath)
+                </td>*@
+            <td>
+                <video id="my-video" class="video-js1" controls preload="auto" width="100" height="100"
+                       poster="MY_VIDEO_POSTER.jpg" data-setup="{}">
+                    <source src="@Url.Content(item.VideoPath)" type='video/mp4' />
+
+                    <p class="vjs-no-js">
+                        -- To view this video please enable JavaScript, and consider upgrading to a web browser that
+                        <a href="https://videojs.com/html5-video-support/" target="_blank">supports HTML5 video</a>
+                    </p>
+                </video>
+            </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.VideoPath)
+                </td>*@
+            <td>
+                @Html.DisplayFor(modelItem => item.GroupName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.WorkoutName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditExcercise", new { eid = item.ExerciseId }) |
+                @Html.ActionLink("Delete", "DeleteExcercise", new { id = item.ExerciseId }, new { onclick = "return confirm('Are you sure you wish to delete this article?');" })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<ToneHouseMvc.Models.tb_SignUp>
+
+@{
+    ViewBag.Title = "Search";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+<p>
+    @using (@Html.BeginForm("Search", "MainAdmin", FormMethod.Get))
+    {
+        <b>Search By:</b>
+        @Html.RadioButton("searchBy", "FirstName", true) <text>Name</text>
+        @Html.TextBox("search") <input type="submit" value="Search" />
+    }
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayName("First Name")
+        </th>
+        <th>
+            @Html.DisplayName("Middle Name")
+        </th>
+        <th>
+            @Html.DisplayName("Last Name")
+        </th>
+        <th>
+            @Html.DisplayName("Email")
+        </th>
+        @*<th>
+            @Html.DisplayName("Password")
+        </th>*@
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MiddleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Password)
+            </td>*@
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.SignUp_Id }) |*@
+                @Html.ActionLink("Delete", "Delete", new { id = item.SignUp_Id })
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    @*<title>home &mdash; Fitness Application</title>*@
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="A Website created by Team 3" />
+    <meta name="keywords" content="A Fitness Application" />
+    <meta name="author" content="Team 3" />
+
+
+
+
+    <link href="~/stamina/css/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css" />
+    <script src="~/stamina/css/bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,500,700,800" rel="stylesheet">
+
+    <!-- Animate.css -->
+    <link rel="stylesheet" href="~/stamina/css/animate.css">
+    <!-- Icomoon Icon Fonts-->
+    <link rel="stylesheet" href="~/stamina/css/icomoon.css">
+    <!-- Bootstrap  -->
+    <link rel="stylesheet" href="~/stamina/css/bootstrap.css">
+
+    <!-- Magnific Popup -->
+    <link rel="stylesheet" href="~/stamina/css/magnific-popup.css">
+
+    <!-- Owl Carousel  -->
+    <link rel="stylesheet" href="~/stamina/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="~/stamina/css/owl.theme.default.min.css">
+
+    <!-- Theme style  -->
+    <link rel="stylesheet" href="~/stamina/css/style.css">
+
+    <!-- Modernizr JS -->
+    <script src="~/stamina/js/modernizr-2.6.2.min.js"></script>
+    <!-- FOR IE9 below -->
+    <!--[if lt IE 9]>
+    <script src="js/respond.min.js"></script>
+    <![endif]-->
+   
+        @*<script type="text/javascript" language="javascript">
+            function DisableBackButton() {
+                window.history.forward()
+            }
+            DisableBackButton();
+            window.onload = DisableBackButton;
+            window.onpageshow = function (evt) { if (evt.persisted) DisableBackButton() }
+            window.onunload = function () { void (0) }
+        </script>*@
+    
+
+</head>
+<body>
+    <div class="fh5co-loader"></div>
+
+    <div id="page">
+        <nav class="fh5co-nav" role="navigation">
+            <div class="top">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-12 text-right">
+                            <p class="num">Call: +91 9876543210</p>
+                            <ul class="fh5co-social">
+                                <li><a href="https://www.facebook.com/The-Tone-House-198544987701581/?modal=admin_todo_tour" target="_blank"><i class="icon-facebook"></i></a></li>
+                             
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="top-menu">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xs-3">
+                            <div id="fh5co-logo"><a href="index.html">The<span>.Tone.</span>House</a></div>
+                        </div>
+                        <div class="col-xs-8 text-right menu-1">
+                            <ul>
+                                <li class="has-dropdown active">
+                                    <a href=@Url.Action("Index","Start")>home</a>
+                                    <ul class="dropdown">
+                                        @*<li><a href="#fh5co-services">Health</a></li>*@
+                                        <li><a href="#about">About Us</a></li>
+                                        @*<li><a href="#fh5co-schedule">Class Schedule</a></li>
+                                        <li><a href="#fh5co-pricing">Pricing</a></li>*@
+                                        <li><a href="#blog">Blog</a></li>
+                                    </ul>
+                                </li>
+                                @*<li><a href=@Url.Action("HealthyLiving","Start")>healthy living</a></li>*@
+                                <li><a href="https://www.facebook.com/The-Tone-House-198544987701581/?modal=admin_todo_tour" target="_blank">Community</a></li>
+                                <li><a href=@Url.Action("Diet","Start")>Diet</a></li>
+                              
+                                     <li><a href=@Url.Action("About","Start")>About</a></li>
+                               
+                               
+                                @* Session exists then hello poornima!! *@
+                                <li class="has-dropdown">
+                                    @if (Session["Sessionemail"] != null && Session["Sessionemail"].Equals("admin@admin.com"))
+                                    {
+                                        <a href="#" id="#1234id">Hello @Session["Sessionemail"] !</a>
+                                        <ul class="dropdown" style="width:initial">
+                                            <li>
+                                                <p style="font-size:small;color:white;font-size:20px"> JOIN FOR FREE!</p>
+                                                <p style="font-size:10px; color:lemonchiffon;font-size:15px"> Start building and tracking your workouts, get support from other Fitness Blender members and more!</p>
+                                                <button class="nav-fitness-btn" style="width:100%;background-color:white;border-radius:3px 4px;border:none">
+                                                    <a href=@Url.Action("Index","MainAdmin") style="all:unset">Admin</a>
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button class="nav-fitness-btn" style="width:100%;background-color:white;border-radius:3px 4px;border:none">
+                                                    <a href=@Url.Action("Logout","Login") style="all:unset">Logout</a>
+                                                </button>
+                                            </li>
+
+                                        </ul>
+                                    }
+                                    @if (Session["Sessionemail"] != null && !Session["Sessionemail"].Equals("admin@admin.com"))
+                                    {
+                                        <a href="#" id="#1234id">Hello @Session["Sessionemail"] !</a>
+                                        <ul class="dropdown" style="width:initial">
+                                            <li>
+                                                <p style="font-size:small;color:white;font-size:20px"> JOIN FOR FREE!</p>
+                                                <p style="font-size:10px; color:lemonchiffon;font-size:15px"> Start building and tracking your workouts, get support from other Fitness Blender members and more!</p>
+                                                <button class="nav-fitness-btn" style="width:100%;background-color:white;border-radius:3px 4px;border:none">
+                                                    <a href=@Url.Action("Dashboard","PersonalDashboard") style="all:unset">Dashboard</a>
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button class="nav-fitness-btn" style="width:100%;background-color:white;border-radius:3px 4px;border:none">
+                                                    <a href=@Url.Action("Logout","Login") style="all:unset">Logout</a>
+                                                </button>
+                                            </li>
+                                            @*<li>
+                        <button class="nav-fitness-btn" style="width:100%;background-color:white;border-radius:3px 4px;border:none">
+                            <a href=@Url.Action("PersonalDetailsForm","PersonalDashboard") style="all:unset">Logout</a>
+                        </button>
+                    </li>*@
+                                        </ul>
+                                    }
+                                    @if (Session["Sessionemail"] == null)
+                                    {
+                                        <a href="#" id="#1234id">My   fitness (^_^) !</a>
+                                        <ul class="dropdown" style="width:initial">
+                                            <li>
+                                                <p style="font-size:small;color:white;font-size:20px"> JOIN FOR FREE!</p>
+                                                <p style="font-size:10px; color:lemonchiffon;font-size:15px"> Start building and tracking your workouts, get support from other Fitness Blender members and more!</p>
+                                                <button class="nav-fitness-btn" style="width:100%;background-color:white;border-radius:3px 4px;border:none">
+                                                    <a href=@Url.Action("Join","Join") style="all:unset">Join</a>
+                                                </button>
+                                            </li>
+                                            <li>
+                                                <button class="nav-fitness-btn" style="width:100%;background-color:white;border-radius:3px 4px;border:none">
+                                                    <a href=@Url.Action("Login","Login") style="all:unset">Login</a>
+                                                </button>
+                                            </li>
+                                        </ul>
+                                    }
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </nav>
+        @*header*@
+
+        <div id="content">
+            @RenderBody()
+        </div>
+        <footer id="fh5co-footer" class="fh5co-bg" style="background-image: url(../../stamina/images/img_bg_1.jpg);" role="contentinfo">
+            <div class="overlay"></div>
+            <div class="container">
+                <div class="row row-pb-md">
+                    @if (Session["Sessionemail"] == null)
+                    {
+                        <div class="col-md-4 fh5co-widget">
+                            <p><a class="btn btn-primary" href=@Url.Action("Join", "Join")>Become A Member</a></p>
+                        </div>
+                    }
+                  
+                    <div class="col-md-8">
+                        <h3>Classes</h3>
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <ul class="fh5co-footer-links">
+                                <li>Cardio</li>
+                                <li>Body Building</li>
+
+                                <li>Running</li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <ul class="fh5co-footer-links">
+                                <li>Boxing</li>
+                                <li>Martial Arts</li>
+
+                                <li>Basketball</li>
+                            </ul>
+                        </div>
+
+                        <div class="col-md-4 col-sm-4 col-xs-6">
+                            <ul class="fh5co-footer-links">
+                                <li>Badminton</li>
+                                <li>Body Building</li>
+                                <li>Teams</li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row copyright">
+                    <div class="col-md-12 text-center">
+                        <p>
+                            <small class="block">&copy; 2018 The TONE HOUSE. All Rights Reserved.</small>
+                                
+                        </p>
+                       
+                    </div>
+                </div>
+
+            </div>
+        </footer>
+    </div>
+    <div class="gototop js-top">
+        <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
+    </div>
+    @section Scripts {
+        @Scripts.Render("~/bundles/jqueryval")
+    }
+    <!-- jQuery -->
+    <script src="~/stamina/js/jquery.min.js"></script>
+    <!-- jQuery Easing -->
+    <script src="~/stamina/js/jquery.easing.1.3.js"></script>
+    <!-- Bootstrap -->
+    <script src="~/stamina/js/bootstrap.min.js"></script>
+    <!-- Waypoints -->
+    <script src="~/stamina/js/jquery.waypoints.min.js"></script>
+    <!-- Stellar Parallax -->
+    <script src="~/stamina/js/jquery.stellar.min.js"></script>
+    <!-- Carousel -->
+    <script src="~/stamina/js/owl.carousel.min.js"></script>
+    <!-- countTo -->
+    <script src="~/stamina/js/jquery.countTo.js"></script>
+    <!-- Magnific Popup -->
+    <script src="~/stamina/js/jquery.magnific-popup.min.js"></script>
+    <script src="~/stamina/js/magnific-popup-options.js"></script>
+    <!-- Main -->
+    <script src="~/stamina/js/main.js"></script>
+</body>
+</html>

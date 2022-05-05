@@ -1,0 +1,794 @@
+﻿@model ToneHouseMvc.Models.DietContentFetch
+@{
+    ViewBag.Title = "Diet";
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image: url('../../stamina/images/home-carousel.jpg');
+" data-stellar-background-ratio="0.1">
+    <div class="overlay"></div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <div class="display-t">
+                    <div class="display-tc animate-box" data-animate-effect="fadeIn">
+                        <h1>Make it a lifestyle, not a duty</h1>
+                        <h2>Lets Work Out Together and Burn Calories.<a href="#" target="_blank"></a></h2>
+                        @*<p><a href="#" class="btn btn-primary popup-vimeo">Subscribe Today</a></p>*@
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<div id="fh5co-services" class="fh5co-bg-section">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 text-center animate-box">
+                <div class="services">
+                    <span>
+                        <img class="img-responsive" src="~/stamina/images/diet-weightgain.svg" alt="">
+                    </span>
+                    <h3>Weight Gain</h3>
+                    <p>"Everything is hard before it is easy."</p>
+                    <p><a href="#recipe_weight_gain" class="btn btn-primary btn-outline btn-sm">Recipes <i class="icon-arrow-right"></i></a></p>
+                </div>
+            </div>
+            <div class="col-md-6 text-center animate-box">
+                <div class="services">
+                    <span>
+                        <img class="img-responsive" src="~/stamina/images/diet-weightloss.svg" alt="">
+                    </span>
+                    <h3>Weight Loss</h3>
+                    <p>"The real workout starts when you want to stop."</p>
+                    <p><a href="#recipe_weight_loss" class="btn btn-primary btn-outline btn-sm">Recipes <i class="icon-arrow-right"></i></a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@*-----------------------------------------------------------The Diet Planner Starts---------------------------------------------------*@
+<div id="fh5co-pricing">
+    <div class="container">
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                <h2>The Diet Planner</h2>
+                <p>You can be the most beautiful person on Earth, and if you don't have a fitness or diet routine, you won't be beautiful.</p>
+            </div>
+        </div>
+
+        @*-----------------------------------------------Recipe List for Weight Gain Starts---------------------------------------------*@
+
+        <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+            <h2><a id="recipe_weight_gain">Weight Gain</a></h2>
+        </div>
+        <div class="row">
+            <div class="pricing">
+                <div class="col-md-3 animate-box">
+                    <div class="price-box">
+                        <h2 class="pricing-plan">Breakfast</h2>
+                        <ul class="classes">
+                            <li>Creamy Chicken and Mushroom Ragout</li>
+                            <li class="color">Grilled Turkey Burgers with Cucumber Salads</li>
+                            <li>Chicken Burrito Bowls</li>
+                            <li class="color"> The Dried Fruit Compote with Green Tea and Lemon</li>
+                            <li>Masala Cheese Toast</li>
+                            <li class="color">  The Chana Dal PanCakes</li>
+                        </ul>
+                        <a href="#recipe_weight_gain_breakfast_list" class="btn btn-select-plan btn-sm">See More</a>
+                    </div>
+                </div>
+
+                <div class="col-md-3 animate-box">
+                    <div class="price-box">
+                        <h2 class="pricing-plan">Lunch</h2>
+                        <ul class="classes">
+                            <li>    The Butterflied Lemon Roast Chicken</li>
+                            <li class="color">   The Citrus Grilled Shrimp and Zoodles</li>
+                            <li>   The Zucchini Noodle Carbonara</li>
+                            <li class="color">   The Apple And Cheddar Pita Pockets</li>
+                            <li>   The Tomato Cheddar Cheese Toast</li>
+                            <li class="color">     The Cheese Paratha</li>
+                        </ul>
+                        <a href="#recipe_weight_gain_lunch_list" class="btn btn-select-plan btn-sm">See More</a>
+                    </div>
+                </div>
+
+                <div class="col-md-3 animate-box">
+                    <div class="price-box">
+                        <h2 class="pricing-plan">Snacks</h2>
+                        <ul class="classes">
+                            <li>Healthy Turkey Burgers</li>
+                            <li class="color">  The Bagels</li>
+                            <li>   The Pesto and Turkey Cucumber Roll Ups</li>
+                            <li class="color">  The Tomato Avocado Burgers</li>
+                            <li>  The Peach Caprese Skewers</li>
+                            <li class="color">   The Wild Mushroom Pizza with Arugula and Pecorino</li>
+                        </ul>
+                        <a href="#recipe_weight_gain_snacks_list" class="btn btn-select-plan btn-sm">See More</a>
+                    </div>
+                </div>
+
+                <div class="col-md-3 animate-box">
+                    <div class="price-box">
+                        <h2 class="pricing-plan">Dinner</h2>
+                        <ul class="classes">
+                            <li>Pork Chops with Asparagus & Pesto</li>
+                            <li class="color">Slow Cooker Beef Bourguignon Stew</li>
+                            <li>Chicken Stuffed Spaghetti Squash</li>
+                            <li class="color">Eggplant & Chickpea Stew</li>
+                            <li>Easy Brown Rice</li>
+                            <li class="color">Moroccan-Style Stuffed Peppers</li>
+                        </ul>
+                        <a href="#recipe_weight_gain_dinner_list" class="btn btn-select-plan btn-sm">See More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*-----------------------------------------------Recipe List for Weight Gain Ends---------------------------------------------*@
+
+        @*-------------------------------------------------Recipe List for Weight Loss Starts-----------------------------------------*@
+        <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+            <h2><a id="recipe_weight_loss">Weight Loss</a></h2>
+        </div>
+        <div class="row">
+            <div class="pricing">
+                <div class="col-md-3 animate-box">
+                    <div class="price-box">
+                        <h2 class="pricing-plan">Breakfast</h2>
+                        <ul class="classes">
+                            <li>The BBQ Chicken Salad</li>
+                            <li class="color">The Tuna and White Bean Salad with Red Wine Vinaigrette</li>
+                            <li>The Avacado-Egg Toast</li>
+                            <li class="color">The Mixed Sprouts Poha</li>
+                            <li>The Oats Idli</li>
+                            <li class="color">The Cherry Tomato Salad</li>
+                        </ul>
+                        <a href="#recipe_weight_loss_breakfast_list" class="btn btn-select-plan btn-sm">See More</a>
+                    </div>
+                </div>
+
+                <div class="col-md-3 animate-box">
+                    <div class="price-box">
+                        <h2 class="pricing-plan">Lunch</h2>
+                        <ul class="classes">
+                            <li>Stir-Fry Sesame Chicken</li>
+                            <li class="color">One-Pot Coconut Curry Shrimp</li>
+                            <li>Quick Chicken Tikka Masala</li>
+                            <li class="color">Clean Eating Taco Salad</li>
+                            <li>Ravioli and Vegetable Soup</li>
+                            <li class="color">Cabbage Paratha</li>
+                        </ul>
+                        <a href="#recipe_weight_loss_lunch_list" class="btn btn-select-plan btn-sm">See More</a>
+                    </div>
+                </div>
+
+                <div class="col-md-3 animate-box">
+                    <div class="price-box">
+                        <h2 class="pricing-plan">Snacks</h2>
+                        <ul class="classes">
+                            <li>Turkey Taco Lettuce Wraps</li>
+                            <li class="color">Savory Lemon White Fish Fillets</li>
+                            <li>Scrambled Eggs with Cheese and Mayonaise</li>
+                            <li class="color">Spinach Quiche with Sun-Dried Tomatoes</li>
+                            <li>Qunio Black Bean Stuffed Peppers</li>
+                            <li class="color">Slow Cooked Beans</li>
+                        </ul>
+                        <a href="#recipe_weight_loss_snacks_list" class="btn btn-select-plan btn-sm">See More</a>
+                    </div>
+                </div>
+
+                <div class="col-md-3 animate-box">
+                    <div class="price-box">
+                        <h2 class="pricing-plan">Dinner</h2>
+                        <ul class="classes">
+                            <li>Chicken Breasts with Mushroom Cream Sauce</li>
+                            <li class="color">Grilled Salmon Kebobs</li>
+                            <li>Shrimp Skewers with Garlic-Lime Marinade</li>
+                            <li class="color">Delicata Squash and Tofu Curry</li>
+                            <li>The Oats Mutter Dosa</li>
+                            <li class="color">The Herbed Paneer Paratha</li>
+                        </ul>
+                        <a href="#recipe_weight_loss_dinner_list" class="btn btn-select-plan btn-sm">See More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        @*-----------------------------------------------Recipe List for Weight Gain Ends---------------------------------------------*@
+
+        @*-------------------------------------------------Recipe List for Weight Loss Starts-----------------------------------------*@
+
+    </div>
+</div>
+
+
+
+<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+    <h2>Weight Gain Recipe Details</h2>
+</div>
+
+@*----------------------------------------------Script Divisons for Deit-----------------------------------------------------------------*@
+
+
+<script type="text/javascript">
+    @* ----------------------------------------------Script Divisons for Deit-----------------------------------------------------------------*@
+
+    $(document).ready(function () {
+        $("#wgbreakfastbtn").click(function () {
+            $("#Createwgbreakfast").toggle();
+        });
+    });
+
+    $(document).ready(function () {
+        $("#wglunchbtn").click(function () {
+            $("#Createwglunch").toggle();
+        });
+    });
+    $(document).ready(function () {
+        $("#wgsnacksbtn").click(function () {
+            $("#Createwgsnacks").toggle();
+        });
+    });
+    $(document).ready(function () {
+        $("#wgdinnerbtn").click(function () {
+            $("#Createwgdinner").toggle();
+        });
+    });
+    //-------------------------------------------------Weight Gain Ends---------------------------------------------------------------
+
+    //------------------------------------------------------Weight Loss Starts---------------------------------------------------------
+    $(document).ready(function () {
+        $("#wlbreakfastbtn").click(function () {
+            $("#Createwlbreakfast").toggle();
+        });
+    });
+
+    $(document).ready(function () {
+        $("#wllunchbtn").click(function () {
+            $("#Createwllunch").toggle();
+        });
+    });
+    $(document).ready(function () {
+        $("#wlsnacksbtn").click(function () {
+            $("#Createwlsnacks").toggle();
+        });
+    });
+    $(document).ready(function () {
+        $("#wldinnerbtn").click(function () {
+            $("#Createwldinner").toggle();
+        });
+    });
+    //---------------------------------------------------Weight Loss Ends--------------------------------------------------------------
+</script>
+@*--------------------------------------------Script Divsion For Diet Ends ----------------------------------------------------------------*@
+
+
+@*--------------------------------------Content for Weight Gain Breakfast Starts------------------------------------------*@
+<div id="fh5co-started" class="fh5co-bg" style="background-image: url('../../stamina/images/diet-breakfast1.jpg');
+        height: auto;">
+    <div class="overlay"><a id="recipe_weight_gain_breakfast_list">.</a></div>
+    <div class="container">
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <h2>WEIGHT GAIN BREAKFAST<br> <span> Get Your <br> Recipes</span></h2>
+            </div>
+        </div>
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <div>
+                    <input type="button" id="wgbreakfastbtn" class="btn btn-default" value="click me">
+                </div>
+
+            </div>
+        </div>
+        @*-------------------------Content for Table Starts---------------------------*@
+        <div id="Createwgbreakfast" style="display:none;">
+            <div class="jumbotron jumbotron-billboard" style="background-color:aliceblue;color:black">
+
+
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Dish Name</th>
+                            <th>Description</th>
+                            <th>Image</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (var item in @Model.wgbreakfast)
+                        {
+                            <tr>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DishName)
+                                </td>
+                                <td>
+                                    <pre style="white-space: pre-wrap;word-break: keep-all;background-color:aliceblue;overflow-x:hidden;">@Html.DisplayFor(modelItem => item.DishDes)</pre>
+                                </td>
+
+                                <td>
+                                    @if (@item.ImagePath != null)
+                                    {
+                                        <img src="@Url.Content(item.ImagePath)" height="250" width="250" />
+                                    }
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @*-----------------------------------------For loop ends-------------------------------------------*@
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+@*-----------------------------------Content for Weight Gain Breakfast Ends----------------------------------------------*@
+<div class="col-md-8 col-md-offset-2 text-center fh5co-heading"></div>
+
+@*-------------------------------------------------Content for Weight Gain Lunch-----------------------------------------------*@
+<div id="fh5co-started" class="fh5co-bg" style="background-image: url('../../stamina/images/diet-lunch1.jpg');
+        height: auto">
+    <div class="overlay"><a id="recipe_weight_gain_lunch_list">.</a></div>
+    <div class="container">
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <h2>WEIGHT GAIN LUNCH<br> <span> Get Your <br> Recipes</span></h2>
+            </div>
+        </div>
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <div>
+                    <input type="button" id="wglunchbtn" class="btn btn-default" value="click me">
+                </div>
+            </div>
+        </div>
+        @*---------------------Content for the table----------------------------*@
+        <div id="Createwglunch" style="display:none;">
+            <div class="jumbotron jumbotron-billboard" style="background-color:aliceblue;color:black">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Dish Name</th>
+                            <th>Description</th>
+                            <th>Image</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (var item in @Model.wglunch)
+                        {
+                            <tr>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DishName)
+                                </td>
+
+                                <td>
+                                    <pre style="white-space: pre-wrap;word-break: keep-all;background-color:aliceblue;overflow-x:hidden;">@Html.DisplayFor(modelItem => item.DishDes)</pre>
+                                </td>
+
+                                <td>
+                                    @*here display picture entered*@
+                                    @if (@item.ImagePath != null)
+                                    {
+                                        <img src="@Url.Content(item.ImagePath)" height="250" width="250" />
+                                    }
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @*------------Table Content Ends------------------------------------*@
+
+            </div>
+        </div>
+
+    </div>
+</div>
+@*-------------------------------------------------Content for Weight Gain Lunch Ends-----------------------------------------------*@
+
+<div class="col-md-8 col-md-offset-2 text-center fh5co-heading"></div>
+
+@*-------------------------------------------------Content for Weight Gain Snacks-----------------------------------------------*@
+<div id="fh5co-started" class="fh5co-bg" style="background-image: url('../../stamina/images/diet-juice1.jpg');
+        height: auto">
+    <div class="overlay"><a id="recipe_weight_gain_snacks_list">.</a></div>
+    <div class="container">
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <h2>WEIGHT GAIN SNACKS <br> <span> Get Your <br> Recipes</span></h2>
+            </div>
+        </div>
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <div>
+                    <input type="button" id="wgsnacksbtn" class="btn btn-default" value="click me">
+                </div>
+            </div>
+        </div>
+        @*--------------Content for Table-------------------------------------------------------*@
+        <div id="Createwgsnacks" style="display:none;">
+            <div class="jumbotron jumbotron-billboard" style="background-color:aliceblue;color:black">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Dish Name</th>
+                            <th>Description</th>
+                            <th>Image</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (var item in @Model.wgsnacks)
+                        {
+                            <tr>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DishName)
+                                </td>
+                                <td>
+                                    <pre style="white-space: pre-wrap;word-break: keep-all;background-color:aliceblue;overflow-x:hidden;">@Html.DisplayFor(modelItem => item.DishDes)</pre>
+                                </td>
+
+                                <td>
+                                    @*@Html.Raw(recipe.Replace("\n", "<br />"))*@
+                                    @if (@item.ImagePath != null)
+                                    {
+                                        <img src="@Url.Content(item.ImagePath)" height="250" width="250" />
+                                    }
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+        @*-----------------------Content of Table Ends----------------------------------------------*@
+    </div>
+</div>
+@*-------------------------------------------------Content for Weight Gain Snacks Ends-----------------------------------------------*@
+
+<div class="col-md-8 col-md-offset-2 text-center fh5co-heading"></div>
+
+@*-------------------------------------------------Content for Weight Gain Dinner-----------------------------------------------*@
+<div id="fh5co-started" class="fh5co-bg" style="background-image: url('../../stamina/images/diet-dinner1.jpg');
+        height: auto">
+    <div class="overlay"><a id="recipe_weight_gain_dinner_list">.</a></div>
+    <div class="container">
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <h2>WEIGHT GAIN DINNER <br> <span> Get Your <br> Recipes</span></h2>
+            </div>
+        </div>
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <div>
+                    <input type="button" id="wgdinnerbtn" class="btn btn-default" value="click me">
+                </div>
+            </div>
+        </div>
+        @*-----------------------------Content for the Table------------------------------------------------------------------*@
+        <div id="Createwgdinner" style="display:none;">
+            <div class="jumbotron jumbotron-billboard" style="background-color:aliceblue;color:black">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Dish Name</th>
+                            <th>Description</th>
+                            <th>Image</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (var item in @Model.wgdinner)
+                        {
+                            <tr>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DishName)
+                                </td>
+                                <td>
+                                    <pre style="white-space: pre-wrap;word-break: keep-all;background-color:aliceblue;overflow-x:hidden;">@Html.DisplayFor(modelItem => item.DishDes)</pre>
+                                </td>
+
+                                <td>
+                                    @if (@item.ImagePath != null)
+                                    {
+                                        <img src="@Url.Content(item.ImagePath)" height="250" width="250" />
+                                    }
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+        @*------------------------Content for Table Ends-----------------------------------------------------------------------*@
+    </div>
+</div>
+@*-------------------------------------------------Content for Weight Gain Dinner Ends-----------------------------------------------*@
+
+
+<div class="col-md-8 col-md-offset-2 text-center fh5co-heading"></div>
+<div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+    <h2>Weight Loss Recipe Details</h2>
+</div>
+
+@*-----------------------------------------Content for Weight Loss Breakfast Starts-------------------------------------------------*@
+<div id="fh5co-started" class="fh5co-bg" style="background-image: url('../../stamina/images/diet-breakfast2.jpg');
+        height: auto">
+    <div class="overlay"><a id="recipe_weight_loss_breakfast_list">.</a></div>
+    <div class="container">
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <h2>WEIGHT LOSS BREAKFAST <br> <span> Get Your <br> Recipes</span></h2>
+            </div>
+        </div>
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <div>
+                    <input type="button" id="wlbreakfastbtn" class="btn btn-default" value="click me">
+                </div>
+            </div>
+        </div>
+        @*------------------------------------Table Contents Starts----------------------*@
+        <div id="Createwlbreakfast" style="display:none;">
+            <div class="jumbotron jumbotron-billboard" style="background-color:aliceblue;color:black">
+
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Dish Name</th>
+                            <th>Description</th>
+                            <th>Image</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (var item in @Model.wlbreakfast)
+                        {
+                            <tr>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DishName)
+                                </td>
+                                <td>
+                                    <pre style="white-space: pre-wrap;word-break: keep-all;background-color:aliceblue;overflow-x:hidden;">@Html.DisplayFor(modelItem => item.DishDes)</pre>
+                                </td>
+
+                                <td>
+                                    @if (@item.ImagePath != null)
+                                    {
+                                        <img src="@Url.Content(item.ImagePath)" height="250" width="250" />
+                                    }
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+
+
+            </div>
+        </div>
+        @*------------------------------------Table Content Ends---------------------------------------------------*@
+    </div>
+</div>
+@*-------------------------------------------Content for Weight Loss Breakfast Ends-------------------------------------------------*@
+
+
+<div class="col-md-8 col-md-offset-2 text-center fh5co-heading"></div>
+
+@*---------------------------------------Content for Weight Loss Lunch Starts--------------------------------------------------------*@
+<div id="fh5co-started" class="fh5co-bg" style="background-image: url('../../stamina/images/diet-lunch3.jpg');
+        height: auto">
+    <div class="overlay"><a id="recipe_weight_loss_lunch_list">.</a></div>
+    <div class="container">
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <h2>WEIGHT LOSS LUNCH <br> <span> Get Your <br> Recipes</span></h2>
+            </div>
+        </div>
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <div>
+                    <input type="button" id="wllunchbtn" class="btn btn-default" value="click me">
+                </div>
+            </div>
+        </div>
+        @* content wl lunch starts  *@
+        <div id="Createwllunch" style="display:none;">
+            <div class="jumbotron jumbotron-billboard" style="background-color:aliceblue;color:black;">
+                @* table for diet content starts------------------------------------ *@
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Dish Name</th>
+                            <th>Description</th>
+                            <th>Image</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (var item in @Model.wllunch)
+                        {
+                            <tr>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DishName)
+                                </td>
+                                <td>
+                                    <pre style="white-space: pre-wrap;word-break: keep-all;background-color:aliceblue;overflow-x:hidden;">@Html.DisplayFor(modelItem => item.DishDes)</pre>
+                                </td>
+
+                                <td>
+                                    @if (@item.ImagePath != null)
+                                    {
+                                        <img src="@Url.Content(item.ImagePath)" height="250" width="250" />
+                                    }
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @* table for diet content ends------------------------------------ *@
+
+            </div>
+        </div>
+        @* content wl lunch end  *@
+    </div>
+</div>
+@*--------------------------------------------Content For Weight Loss Lunch Ends-----------------------------------------------------*@
+
+<div class="col-md-8 col-md-offset-2 text-center fh5co-heading"></div>
+
+@*------------------------------------------------------Content For Weight Loss Snacks Starts-------------------------------------*@
+<div id="fh5co-started" class="fh5co-bg" style="background-image: url('../../stamina/images/diet-juice3.jpg');
+        height: auto">
+    <div class="overlay"><a id="recipe_weight_loss_snacks_list">.</a></div>
+    <div class="container">
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <h2>WEIGHT LOSS SNACKS</a> <br> <span> Get Your <br> Recipes</span></h2>
+            </div>
+        </div>
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <div>
+                    <input type="button" id="wlsnacksbtn" class="btn btn-default" value="click me">
+                </div>
+            </div>
+        </div>
+        @* content wl snacks starts  *@
+        <div id="Createwlsnacks" style="display:none;">
+            <div class="jumbotron jumbotron-billboard" style="background-color:aliceblue;color:black">
+                @* table for diet content starts------------------------------------ *@
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Dish Name</th>
+                            <th>Description</th>
+                            <th>Image</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (var item in @Model.wlsnacks)
+                        {
+                            <tr>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DishName)
+                                </td>
+                                <td>
+                                    <pre style="white-space: pre-wrap;word-break: keep-all;background-color:aliceblue;overflow-x:hidden;">@Html.DisplayFor(modelItem => item.DishDes)</pre>
+                                </td>
+
+                                <td>
+                                    @if (@item.ImagePath != null)
+                                    {
+                                        <img src="@Url.Content(item.ImagePath)" height="250" width="250" />
+                                    }
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+                @* table for diet content ends------------------------------------ *@
+
+            </div>
+        </div>
+        @* content wl snacks end  *@
+    </div>
+</div>
+@*-------------------------------------Content for Weight Loss Snacks Ends----------------------------------------------------------*@
+
+
+<div class="col-md-8 col-md-offset-2 text-center fh5co-heading"></div>
+@*-------------------------------------------------Content for Weight Loss Dinner Starts---------------------------------------------*@
+
+<div id="fh5co-started" class="fh5co-bg" style="background-image: url('../../stamina/images/diet-dinner2.jpg');
+        height: auto">
+    <div class="overlay"><a id="recipe_weight_loss_dinner_list">.</a></div>
+    <div class="container">
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <h2>WEIGHT LOSS DINNER <br> <span> Get Your <br> Recipes</span></h2>
+            </div>
+        </div>
+        <div class="row animate-box">
+            <div class="col-md-8 col-md-offset-2 text-center">
+                <div>
+                    <input type="button" id="wldinnerbtn" class="btn btn-default" value="click me">
+                </div>
+            </div>
+        </div>
+        @* content wl dinner starts  *@
+        <div id="Createwldinner" style="display:none;">
+            <div class="jumbotron jumbotron-billboard" style="background-color:aliceblue;color:black">
+                @* table for diet content starts------------------------------------ *@
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Dish Name</th>
+                            <th>Description</th>
+                            <th>Image</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        @foreach (var item in @Model.wldinner)
+                        {
+                            <tr>
+
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.DishName)
+                                </td>
+                                <td>
+                                    <pre style="white-space: pre-wrap;word-break: keep-all;background-color:aliceblue;overflow-x:hidden;">@Html.DisplayFor(modelItem => item.DishDes)</pre>
+                                </td>
+
+                                <td>
+                                    @if (@item.ImagePath != null)
+                                    {
+                                        <img src="@Url.Content(item.ImagePath)" height="250" width="250" />
+                                    }
+                                </td>
+
+                            </tr>
+                        }
+                    </tbody>
+
+                </table>
+                @* table for diet content ends------------------------------------ *@
+
+            </div>
+        </div>
+        @*-----------------------Table Content Ends----------------------------------------------------------------------*@
+    </div>
+</div>
+@*------------------------------------------------Content for Weight Loss Dinner Ends------------------------------------------------*@

@@ -1,0 +1,66 @@
+﻿@model IEnumerable<ToneHouseMvc.Models.Sp_DietDetails_Result>
+@{
+    Layout = "~/Views/Shared/_MyLayout.cshtml";
+}
+
+<p>
+    @Html.ActionLink("Create New", "CreateDiet")
+</p>
+
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DishName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DishDes)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DishTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ImagePath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TypeName)
+        </th>
+        <th></th>
+    </tr>
+
+
+    @foreach (var item in Model)
+    {
+
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DishName)
+            </td>
+            <td>
+                <pre style="white-space: pre-wrap;word-break: keep-all;background-color:aliceblue;overflow-x:hidden;">@Html.DisplayFor(modelItem => item.DishDes)</pre>
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DishTime)
+            </td>
+            <td>
+                @if (@item.ImagePath != null)
+                {
+                    <img src="@Url.Content(item.ImagePath)" height="100" width="100" />
+                }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TypeName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "EditDiet", new { deid = item.DietID }) |
+                @*@Html.ActionLink("Details", "Details", new { id = item.DietID }) |*@
+                @Html.ActionLink("Delete", "DeleteDiet", new { id = item.DietID }, new { onclick = "return confirm('Are you sure you wish to delete this article?');" })
+            </td>
+        </tr>
+    }
+
+    
+
+</table>
+

@@ -1,0 +1,149 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="db_TheToneHouseModelStoreContainer" CdmEntityContainer="db_TheToneHouseEntities2">
+    <EntitySetMapping Name="tb_Diet">
+      <EntityTypeMapping TypeName="db_TheToneHouseModel.tb_Diet">
+        <MappingFragment StoreEntitySet="tb_Diet">
+          <ScalarProperty Name="DietID" ColumnName="DietID" />
+          <ScalarProperty Name="TypeID" ColumnName="TypeID" />
+          <ScalarProperty Name="DishName" ColumnName="DishName" />
+          <ScalarProperty Name="DishDes" ColumnName="DishDes" />
+          <ScalarProperty Name="DishTime" ColumnName="DishTime" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Exercise">
+      <EntityTypeMapping TypeName="db_TheToneHouseModel.tb_Exercise">
+        <MappingFragment StoreEntitySet="tb_Exercise">
+          <ScalarProperty Name="ExerciseId" ColumnName="ExerciseId" />
+          <ScalarProperty Name="WorkoutId" ColumnName="WorkoutId" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="ExerciseName" ColumnName="ExerciseName" />
+          <ScalarProperty Name="ExerciseDescription" ColumnName="ExerciseDescription" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="VideoPath" ColumnName="VideoPath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_ExerciseGroup">
+      <EntityTypeMapping TypeName="db_TheToneHouseModel.tb_ExerciseGroup">
+        <MappingFragment StoreEntitySet="tb_ExerciseGroup">
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Payment">
+      <EntityTypeMapping TypeName="db_TheToneHouseModel.tb_Payment">
+        <MappingFragment StoreEntitySet="tb_Payment">
+          <ScalarProperty Name="PaymentID" ColumnName="PaymentID" />
+          <ScalarProperty Name="Duration" ColumnName="Duration" />
+          <ScalarProperty Name="Amount" ColumnName="Amount" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_PersonalDetails">
+      <EntityTypeMapping TypeName="db_TheToneHouseModel.tb_PersonalDetails">
+        <MappingFragment StoreEntitySet="tb_PersonalDetails">
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="SignUpId" ColumnName="SignUpId" />
+          <ScalarProperty Name="Age" ColumnName="Age" />
+          <ScalarProperty Name="Height" ColumnName="Height" />
+          <ScalarProperty Name="Weight" ColumnName="Weight" />
+          <ScalarProperty Name="BloodGroup" ColumnName="BloodGroup" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="PhoneNo" ColumnName="PhoneNo" />
+          <ScalarProperty Name="PhotoPath" ColumnName="PhotoPath" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_PlanOpted">
+      <EntityTypeMapping TypeName="db_TheToneHouseModel.tb_PlanOpted">
+        <MappingFragment StoreEntitySet="tb_PlanOpted">
+          <ScalarProperty Name="PlanOptedId" ColumnName="PlanOptedId" />
+          <ScalarProperty Name="UserId" ColumnName="UserId" />
+          <ScalarProperty Name="ExerciseId" ColumnName="ExerciseId" />
+          <ScalarProperty Name="Time" ColumnName="Time" />
+          <ScalarProperty Name="Distance" ColumnName="Distance" />
+          <ScalarProperty Name="Calories" ColumnName="Calories" />
+          <ScalarProperty Name="PaymentId" ColumnName="PaymentId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_SignUp">
+      <EntityTypeMapping TypeName="db_TheToneHouseModel.tb_SignUp">
+        <MappingFragment StoreEntitySet="tb_SignUp">
+          <ScalarProperty Name="SignUp_Id" ColumnName="SignUp_Id" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="MiddleName" ColumnName="MiddleName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Type">
+      <EntityTypeMapping TypeName="db_TheToneHouseModel.tb_Type">
+        <MappingFragment StoreEntitySet="tb_Type">
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tb_Workout">
+      <EntityTypeMapping TypeName="db_TheToneHouseModel.tb_Workout">
+        <MappingFragment StoreEntitySet="tb_Workout">
+          <ScalarProperty Name="WorkoutId" ColumnName="WorkoutId" />
+          <ScalarProperty Name="WorkoutName" ColumnName="WorkoutName" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="usp_Insert_tb_PersonalDetails" FunctionName="db_TheToneHouseModel.Store.usp_Insert_tb_PersonalDetails" />
+    <FunctionImportMapping FunctionImportName="usp_Insert_tb_PlanOpted" FunctionName="db_TheToneHouseModel.Store.usp_Insert_tb_PlanOpted" />
+    <FunctionImportMapping FunctionImportName="usp_Insert_tb_SignUp" FunctionName="db_TheToneHouseModel.Store.usp_Insert_tb_SignUp" />
+    <FunctionImportMapping FunctionImportName="Sp_DietDetails" FunctionName="db_TheToneHouseModel.Store.Sp_DietDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_TheToneHouseModel.Sp_DietDetails_Result">
+          <ScalarProperty Name="DietID" ColumnName="DietID" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="DishName" ColumnName="DishName" />
+          <ScalarProperty Name="DishDes" ColumnName="DishDes" />
+          <ScalarProperty Name="DishTime" ColumnName="DishTime" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="Sp_DisplayDetails" FunctionName="db_TheToneHouseModel.Store.Sp_DisplayDetails">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="db_TheToneHouseModel.Sp_DisplayDetails_Result">
+          <ScalarProperty Name="ExerciseId" ColumnName="ExerciseId" />
+          <ScalarProperty Name="WorkoutId" ColumnName="WorkoutId" />
+          <ScalarProperty Name="WorkoutName" ColumnName="WorkoutName" />
+          <ScalarProperty Name="GroupId" ColumnName="GroupId" />
+          <ScalarProperty Name="TypeId" ColumnName="TypeId" />
+          <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+          <ScalarProperty Name="TypeName" ColumnName="TypeName" />
+          <ScalarProperty Name="ExerciseName" ColumnName="ExerciseName" />
+          <ScalarProperty Name="ExerciseDescription" ColumnName="ExerciseDescription" />
+          <ScalarProperty Name="ImagePath" ColumnName="ImagePath" />
+          <ScalarProperty Name="VideoPath" ColumnName="VideoPath" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="db_TheToneHouseModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="definition" ColumnName="definition" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>
